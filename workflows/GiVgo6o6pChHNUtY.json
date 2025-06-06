@@ -1,0 +1,819 @@
+{
+  "active": false,
+  "connections": {
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Set Text1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set Text",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Text": {
+      "main": [
+        [
+          {
+            "node": "AI_Agent_node",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI_Agent_node",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI_Agent_node",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Text1": {
+      "main": [
+        [
+          {
+            "node": "Send Analysis1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Set Text2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Text2": {
+      "main": [
+        [
+          {
+            "node": "AI_Agent_node",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Input Trigger": {
+      "main": [
+        [
+          {
+            "node": "Set Values",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Values": {
+      "main": [
+        [
+          {
+            "node": "Get Chart URL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download Chart": {
+      "main": [
+        [
+          {
+            "node": "Technical Analysis1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Technical Analysis1": {
+      "main": [
+        [
+          {
+            "node": "Send Chart1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Chart1": {
+      "main": [
+        [
+          {
+            "node": "Google Docs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Chart": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI_Agent_node",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Google Docs": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI_Agent_node",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save Google Docs": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI_Agent_node",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI_Agent_node": {
+      "main": [
+        [
+          {
+            "node": "Send Analysis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Docs": {
+      "main": [
+        [
+          {
+            "node": "response1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Chart URL": {
+      "main": [
+        [
+          {
+            "node": "Download Chart",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-05-19T07:16:21.850Z",
+  "id": "GiVgo6o6pChHNUtY",
+  "meta": null,
+  "name": "Cryptocurrency",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "id": "7e284148-755a-4828-996f-4c6f96e612e0",
+      "name": "Telegram Trigger",
+      "position": [
+        -440,
+        100
+      ],
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.1,
+      "webhookId": "d190e520-0904-45b9-8f1a-062293e4beaa",
+      "credentials": {
+        "telegramApi": {
+          "id": "0vSzsoInEfTGHS1W",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.message.voice.file_id }}",
+                    "operator": {
+                      "operation": "exists",
+                      "singleValue": true,
+                      "type": "string"
+                    },
+                    "rightValue": ""
+                  }
+                ],
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                }
+              },
+              "renameOutput": true,
+              "outputKey": "Voice"
+            },
+            {
+              "conditions": {
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "id": "8c844924-b2ed-48b0-935c-c66a8fd0c778",
+                    "leftValue": "={{ $json.message.text }}",
+                    "operator": {
+                      "operation": "exists",
+                      "singleValue": true,
+                      "type": "string"
+                    },
+                    "rightValue": ""
+                  }
+                ],
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                }
+              },
+              "renameOutput": true,
+              "outputKey": "Text"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "fdc58f86-8e6b-4a96-bf27-cd46212748fb",
+      "name": "Switch",
+      "position": [
+        -220,
+        100
+      ],
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "fe7ecc99-e1e8-4a5e-bdd6-6fce9757b234",
+              "name": "text",
+              "type": "string",
+              "value": "={{ $json.message.text }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "491f04d8-996a-4864-9698-18825858df2b",
+      "name": "Set Text",
+      "position": [
+        0,
+        250
+      ],
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "cachedResultName": "gpt-4o-mini",
+          "mode": "list",
+          "value": "gpt-4o-mini"
+        },
+        "options": {}
+      },
+      "id": "c4f00420-bda8-4dc2-86d4-dd14a6d645ef",
+      "name": "OpenAI Chat Model",
+      "position": [
+        220,
+        470
+      ],
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "credentials": {
+        "openAiApi": {
+          "id": "5ibry7EtqlW5Ub8k",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Telegram Trigger').item.json.update_id }}"
+      },
+      "id": "dfe2ade7-25f5-47d9-b085-95e01bbf72a8",
+      "name": "Window Buffer Memory",
+      "position": [
+        340,
+        470
+      ],
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3
+    },
+    {
+      "parameters": {
+        "chatId": "=5513588652",
+        "text": "={{ $json.output }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "id": "6b5a611b-3621-45b2-a567-12cd0dad8620",
+      "name": "Send Analysis",
+      "position": [
+        900,
+        350
+      ],
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "webhookId": "949b8c67-29b9-4714-8a42-b0e59e91ae10",
+      "credentials": {
+        "telegramApi": {
+          "id": "0vSzsoInEfTGHS1W",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "fe7ecc99-e1e8-4a5e-bdd6-6fce9757b234",
+              "name": "text",
+              "type": "string",
+              "value": "=目前只支援文字"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "52a2f13d-844b-47e5-a7f5-b2b16617148b",
+      "name": "Set Text1",
+      "position": [
+        0,
+        0
+      ],
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "chatId": "=5513588652",
+        "text": "={{ $json.text }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "id": "bbdf2b71-291f-414e-ad34-05bc471c6a34",
+      "name": "Send Analysis1",
+      "position": [
+        450,
+        0
+      ],
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "webhookId": "949b8c67-29b9-4714-8a42-b0e59e91ae10",
+      "credentials": {
+        "telegramApi": {
+          "id": "0vSzsoInEfTGHS1W",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "12a80fbc-ac59-48f3-b6fd-683d7c420995",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "id": "f4f7e76c-027a-49e4-850b-35af58018902",
+      "name": "Webhook",
+      "position": [
+        -220,
+        450
+      ],
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "webhookId": "12a80fbc-ac59-48f3-b6fd-683d7c420995"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "fe7ecc99-e1e8-4a5e-bdd6-6fce9757b234",
+              "name": "text",
+              "type": "string",
+              "value": "={{ $json.body }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "47fda666-35c8-4179-914a-2c5c3d00a322",
+      "name": "Set Text2",
+      "position": [
+        0,
+        450
+      ],
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "ticker"
+            },
+            {
+              "name": "chart_style"
+            }
+          ]
+        }
+      },
+      "id": "a04a3d34-e4e0-4344-9421-526f07d1dbdc",
+      "name": "Workflow Input Trigger",
+      "position": [
+        -440,
+        710
+      ],
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "cf5f7210-5b54-4f4a-abf7-87873be82df4",
+              "name": "ticker",
+              "type": "string",
+              "value": "={{ $json.ticker }}"
+            },
+            {
+              "id": "12a27443-a009-4bd5-b33f-bcec74aa74c7",
+              "name": "chart_style",
+              "type": "string",
+              "value": "={{ $json.chart_style }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "15a431ea-0d5a-49ad-b9bf-c7ac902c0074",
+      "name": "Set Values",
+      "position": [
+        -220,
+        710
+      ],
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.url }}",
+        "options": {}
+      },
+      "id": "87a8c45d-4eb7-4c42-947d-28fda538d90b",
+      "name": "Download Chart",
+      "position": [
+        220,
+        710
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "operation": "analyze",
+        "modelId": {
+          "__rl": true,
+          "cachedResultName": "GPT-4O-MINI",
+          "mode": "list",
+          "value": "gpt-4o-mini"
+        },
+        "text": "=# Professional Role\n\nYou are a financial analyst, specializing in the interpretive analysis of stock charts. Your primary responsibility is to scrutinize provided financial charts and deliver comprehensive assessments of their technical dimensions. This includes examining candlestick formations, Moving Average Convergence Divergence (MACD) metrics, trading volume patterns, **Relative Strength Index (RSI), Stochastic RSI**, and prevailing market sentiment. Your analysis should be a thorough dissection of the chart, pinpointing critical areas and offering practical insights.\n\nWhen evaluating a stock chart, ensure the inclusion of the following:\n\n1. **Candlestick Pattern Interpretation**:\n    - Recognize and articulate the significance of any notable candlestick formations (e.g., bullish engulfing, doji, hammer).\n    - Provide commentary on the prevailing market direction (upward, downward, or lateral).\n    - Identify potential zones for price surges or retracements.\n\n2. **Relative Strength Index (RSI) Examination**:\n    - **Extract the numerical RSI value from the chart.**\n    - Describe the current RSI value and its market positioning (e.g., overbought, oversold, neutral) **based on the extracted value.**\n    - Explain how the extracted RSI value and its trend either support or oppose the ongoing price trend.\n    - Identify any divergences between RSI values and price movement **that can be discerned from the chart.**\n\n3. **Stochastic RSI Scrutiny(Stoch RSI)**:\n    - **Extract the numerical values of the Stochastic RSI's K and D lines from the chart.**\n    - Detail the present values of the K and D lines **based on the extracted numerical data.**\n    - Analyze any crossovers or divergences observed between the K and D lines **based on the extracted values and their visual representation.**\n    - Explain how the extracted Stochastic RSI readings and their relationship either support or oppose the prevailing market momentum.\n\n\nDeliver your analysis with clarity, precision, and an emphasis on data. Your objective is to furnish traders and investors with actionable information that facilitates well-informed decision-making. Always justify your conclusions with clear reasoning derived from the chart.",
+        "inputType": "base64",
+        "binaryPropertyName": "=data",
+        "simplify": false,
+        "options": {
+          "detail": "auto"
+        }
+      },
+      "id": "b7f937dc-4313-4973-b99f-781517523226",
+      "name": "Technical Analysis1",
+      "position": [
+        440,
+        710
+      ],
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "credentials": {
+        "openAiApi": {
+          "id": "5ibry7EtqlW5Ub8k",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "fdf7e016-7082-4146-9038-454139023990",
+              "name": "response",
+              "type": "string",
+              "value": "={{ $('Technical Analysis1').item.json.choices[0].message.content }}"
+            },
+            {
+              "id": "d65ce25d-d815-4eee-ae9e-bcdf93430595",
+              "name": "Google Doc ID",
+              "type": "string",
+              "value": "={{ $json.id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "619ee02c-499c-46b3-ac13-f996b50a4b1f",
+      "name": "response1",
+      "position": [
+        1100,
+        710
+      ],
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "operation": "sendPhoto",
+        "chatId": "5513588652",
+        "file": "={{ $('Get Chart URL').item.json.url }}",
+        "additionalFields": {}
+      },
+      "id": "6c387f89-f404-4570-b146-9cc76a874b0f",
+      "name": "Send Chart1",
+      "position": [
+        660,
+        710
+      ],
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "webhookId": "a42b988a-cd3a-4cf0-8975-7a38c8b510ba",
+      "credentials": {
+        "telegramApi": {
+          "id": "0vSzsoInEfTGHS1W",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "name": "getChart",
+        "description": "Call this tool to get an analysis of a requested stock. The URL that is output from this tool must be returned in markdown format. For example, ![](url)\n\nIt'll be obligatory to pass ticker and chart style. Both can be specified by user. If chart style is not specified by user, use \"candle\" as default. Possible options for style: [bar, candle, line, area, heikinAshi, hollowCandle, baseline, hiLo, column]",
+        "workflowId": {
+          "__rl": true,
+          "value": "GiVgo6o6pChHNUtY",
+          "mode": "list",
+          "cachedResultName": "Cryptocurrency"
+        },
+        "workflowInputs": {
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false,
+          "mappingMode": "defineBelow",
+          "matchingColumns": [],
+          "schema": [
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "ticker",
+              "id": "ticker",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "canBeUsedToMatch": true,
+              "defaultMatch": false,
+              "display": true,
+              "displayName": "chart_style",
+              "id": "chart_style",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "value": {
+            "chart_style": "={{ $fromAI('chart_style', ``, 'string') }}",
+            "ticker": "={{ $fromAI('ticker', ``, 'string') }}"
+          }
+        }
+      },
+      "id": "ffaae691-b7c8-4dba-90a3-a8190babb895",
+      "name": "Get Chart",
+      "position": [
+        460,
+        470
+      ],
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "folderId": "1G92uXeUHOH-GdNGctHo7BdAkuVABB_Dk",
+        "title": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Title', ``, 'string') }}"
+      },
+      "id": "b87f5f3c-b1cd-4471-a1e5-b3d4580ab368",
+      "name": "Create Google Docs",
+      "position": [
+        580,
+        470
+      ],
+      "type": "n8n-nodes-base.googleDocsTool",
+      "typeVersion": 2,
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Doc_ID_or_URL', ``, 'string') }}",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "insert",
+              "text": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Text', ``, 'string') }}"
+            }
+          ]
+        }
+      },
+      "id": "2f5b2a87-a8b3-4bf4-a9e5-897fe0655fad",
+      "name": "Save Google Docs",
+      "position": [
+        700,
+        470
+      ],
+      "type": "n8n-nodes-base.googleDocsTool",
+      "typeVersion": 2,
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "518JXtA6USgxrDUk",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.text }}",
+        "options": {
+          "systemMessage": "You are an AI agent specializing in analyzing stocks. You can perform technical analysis using the **GetChart** tool to generate stock graphs.\n\nInstructions\n1. Begin by offering a warm and professional greeting.\n2. Maintain a conversational style when discussing finance and stock markets.\n3. If a user requests a technical analysis of a stock, supplying its ticker:\n- Send only the stock ticker to the GetChart tool.\n- Present the chart's analysis and insights in a conversational format.\n4. When addressing financial subjects, provide thorough, easy-to-understand explanations suitable for the user's knowledge.\n\nTools\n- **GetChart**: Used for generating stock graphs based on provided tickers and retrivered Google Doc ID.\n- **Save Google Docs**: Used for Save a Google Doc based on a created Google Doc ID.\n\nStandard Operating Procedure\n1. Interact with the user: Maintain a professional and approachable demeanor.\n2. Conduct stock analysis:\n- Upon request for technical analysis, send the stock's ticker symbol to the GetChart tool.\n- Present the chart's findings in an easy-to-understand, conversational manner.\n3. Clarify financial topics: Simplify intricate terms into accessible explanations suitable for the user's knowledge level.\n4. Verify user understanding: Ask clarifying questions to meet all needs."
+        }
+      },
+      "id": "1d1e4be6-67c6-4dcd-9dbe-b149bfb25263",
+      "name": "AI_Agent_node",
+      "position": [
+        372,
+        250
+      ],
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7
+    },
+    {
+      "parameters": {
+        "folderId": "1G92uXeUHOH-GdNGctHo7BdAkuVABB_Dk",
+        "title": "={{ $('Set Values').item.json.ticker }}"
+      },
+      "id": "632d39ca-3160-489f-9ffd-1207e8c67175",
+      "name": "Google Docs",
+      "position": [
+        880,
+        710
+      ],
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "518JXtA6USgxrDUk",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.chart-img.com/v2/tradingview/advanced-chart/storage",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"style\": \"{{ $json.chart_style }}\",\n  \"theme\": \"light\",\n  \"interval\": \"1W\",\n  \"symbol\": \"{{ $json.ticker }}\",\n  \"override\": {\n    \"showStudyLastValue\": false\n  },\n  \"studies\": [\n    {\n      \"name\": \"Volume\",\n      \"forceOverlay\": true\n    },\n{\n      \"name\": \"Relative Strength Index\"\n    },\n{\n      \"name\": \"Stochastic RSI\"\n}\n  ]\n}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "id": "77bcc58e-b500-42f9-a269-f8a0fe14aacc",
+      "name": "Get Chart URL",
+      "position": [
+        0,
+        710
+      ],
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "sedOlHxowWhIK8NO",
+          "name": "Header Auth account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 2,
+  "updatedAt": "2025-05-21T15:02:19.000Z",
+  "versionId": "8d5042fc-4ca4-4aa3-b435-c99b3f870292"
+}
