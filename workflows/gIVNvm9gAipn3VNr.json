@@ -1,0 +1,499 @@
+{
+  "active": false,
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "生成视频内容",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "設定變數",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "生成视频内容",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "生成视频内容",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "生成视频内容": {
+      "main": [
+        [
+          {
+            "node": "生成视频",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "生成视频": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "查询进度",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "查询进度": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "下载视频",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "下载视频": {
+      "main": [
+        [
+          {
+            "node": "YouTube",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "產生文字描述": {
+      "main": [
+        [
+          {
+            "node": "產生圖檔",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "設定變數": {
+      "main": [
+        [
+          {
+            "node": "產生文字描述",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "產生圖檔": {
+      "main": [
+        [
+          {
+            "node": "Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-05-29T09:43:41.284Z",
+  "id": "gIVNvm9gAipn3VNr",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "FreeAICollection",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "請輸入你想要產生的內容",
+        "formDescription": "輸入你要的內容，會自動產生圖片",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "topic"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        -1460,
+        -130
+      ],
+      "id": "d6cae0f3-4f98-441a-9c05-1c06a7936631",
+      "name": "On form submission",
+      "webhookId": "876e1cf0-d23a-4470-a804-c41c81d03a9c"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.0-flash-lite",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -1212,
+        240
+      ],
+      "id": "fe4b3cd9-4134-4087-b704-5cea54a10d98",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "PkFzLXsW6A1eRV3Y",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n    \"title\": \"标题\",\n    \"content\": \"内容\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        -1092,
+        240
+      ],
+      "id": "9f31d3a3-ed03-4f01-9a5e-b136b9744d2b",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "按照要求生成内容",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=你是一位资深自媒体运营专家兼文案策划师，深谙 YouTube Shorts 平台调性与用户心理。  \n任务：针对“{{ $json.topic }}”主题，撰写一份100–120字的短视频文案，并给出不超过10字的标题。  \n要求：  \n1. 模仿以下结构：  \n   - 【钩子】3秒内抓住注意力  \n   - 【核心要点】3个关键卖点或利益点  \n   - 【CTA】一句行动号召  \n2. 严格输出 JSON，且仅包含 title 和 content 两个字段：  \n{\n  \"title\": \"在此填入视频标题\",\n  \"content\": \"在此填入文案内容\"\n}\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        -1240,
+        20
+      ],
+      "id": "798f21f8-c2f6-4d5d-aa23-e03d15722862",
+      "name": "生成视频内容"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://host.docker.internal:8080/api/v1/videos",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"video_subject\": \"{{ $json.output.title }}\",\n  \"video_script\": \"{{ $json.output.content.replace(/\\n/g, '\\\\n') }}\",\n  \"video_terms\": \"sport\",\n  \"video_aspect\": \"9:16\",\n  \"video_concat_mode\": \"random\",\n  \"video_transition_mode\": \"None\",\n  \"video_clip_duration\": 5,\n  \"video_count\": 1,\n  \"video_source\": \"pexels\",\n  \"video_materials\": [\n    {\n      \"provider\": \"pexels\",\n      \"url\": \"\",\n      \"duration\": 0\n    }\n  ],\n  \"video_language\": \"\",\n  \"voice_name\": \"zh-CN-YunyangNeural-Male\",\n  \"voice_volume\": 1,\n  \"voice_rate\": 1,\n  \"bgm_type\": \"random\",\n  \"bgm_file\": \"\",\n  \"bgm_volume\": 0.2,\n  \"subtitle_enabled\": true,\n  \"subtitle_position\": \"bottom\",\n  \"custom_position\": 70,\n  \"font_name\": \"STHeitiMedium.ttc\",\n  \"text_fore_color\": \"#FFFFFF\",\n  \"text_background_color\": true,\n  \"font_size\": 60,\n  \"stroke_color\": \"#000000\",\n  \"stroke_width\": 1.5,\n  \"n_threads\": 2,\n  \"paragraph_number\": 1\n} ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -864,
+        20
+      ],
+      "id": "048ba310-2575-43b6-a7c1-bf4aef07301f",
+      "name": "生成视频"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        -644,
+        20
+      ],
+      "id": "78408710-38cb-4f02-971e-2fcfbca91a49",
+      "name": "Wait",
+      "webhookId": "038be595-d2b3-479c-9cb0-8c9c16c9977c"
+    },
+    {
+      "parameters": {
+        "url": "=http://host.docker.internal:8080/api/v1/tasks/{{ $json.data.task_id }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -424,
+        -55
+      ],
+      "id": "69b850ee-68ab-4464-9d34-800227152e9a",
+      "name": "查询进度"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "9d0ef9c9-4158-4cfe-b259-bef6752ad6fe",
+              "leftValue": "={{ $json.data.progress }}",
+              "rightValue": 100,
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -204,
+        20
+      ],
+      "id": "1da15af2-eae7-40ad-9c68-1bd0541954cf",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.data.videos[0] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        16,
+        20
+      ],
+      "id": "f8d5cc7f-896c-4e7b-84b8-d1a5057b6733",
+      "name": "下载视频"
+    },
+    {
+      "parameters": {
+        "resource": "video",
+        "operation": "upload",
+        "title": "={{ $('生成视频内容').item.json.output.title }}",
+        "regionCode": "HK",
+        "categoryId": "24",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.youTube",
+      "typeVersion": 1,
+      "position": [
+        236,
+        20
+      ],
+      "id": "adc771e3-2caf-4c4e-83d7-27f68a0695ec",
+      "name": "YouTube",
+      "credentials": {
+        "youTubeOAuth2Api": {
+          "id": "A7cw7kFBd4vcYSC8",
+          "name": "YouTube account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://text.pollinations.ai/{{ encodeURIComponent($json.context) }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "httpBearerAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "token",
+              "value": "={{ $json.pollinations_token }}"
+            },
+            {
+              "name": "referrer",
+              "value": "gxrrgj6t-443.asse.devtunnels.ms×"
+            },
+            {
+              "name": "seed",
+              "value": "={{ $json.seed }}"
+            },
+            {
+              "name": "private",
+              "value": "true"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -900,
+        -280
+      ],
+      "id": "2535481b-bd2a-4ea1-ac5b-842765037806",
+      "name": "產生文字描述",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "VeQg4nYZVc5tRPce",
+          "name": "Bearer Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0f92a3dc-22d5-466e-b1f8-69c0045055ff",
+              "name": "pollinations_token",
+              "value": "v58NNo7fauiWtBsS",
+              "type": "string"
+            },
+            {
+              "id": "e5cd2a63-ec3e-4190-8b89-7523e5d5bcf8",
+              "name": "context",
+              "value": "=請產生一段詳細並且適合使用AI來產生圖檔的英文描述，內容為：{{ $json.topic }}[不需額外的回覆，直接依需求回覆內容]",
+              "type": "string"
+            },
+            {
+              "id": "35968b04-2ff7-466a-a8e8-c23328032958",
+              "name": "seed",
+              "value": "={{ Math.floor(Math.random() * (99999 - 10000 + 1)) + 10000 }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1160,
+        -260
+      ],
+      "id": "2a79d6af-69b5-4edc-99a8-2aec5336a79a",
+      "name": "設定變數"
+    },
+    {
+      "parameters": {
+        "url": "=https://image.pollinations.ai/prompt/{{ encodeURIComponent($json.data) }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "httpBearerAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "token",
+              "value": "={{ $('設定變數').item.json.pollinations_token }}"
+            },
+            {
+              "name": "referrer",
+              "value": "gxrrgj6t-443.asse.devtunnels.ms×"
+            },
+            {
+              "name": "seed",
+              "value": "={{ $('設定變數').item.json.seed }}"
+            },
+            {
+              "name": "private",
+              "value": "true"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -660,
+        -280
+      ],
+      "id": "6f88ce80-796a-4edb-af0d-1adcaac0a282",
+      "name": "產生圖檔",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "VeQg4nYZVc5tRPce",
+          "name": "Bearer Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "sendPhoto",
+        "chatId": "5513588652",
+        "binaryData": true,
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -440,
+        -280
+      ],
+      "id": "201c9d69-64aa-4fac-a36d-d436ecbe444e",
+      "name": "Telegram",
+      "webhookId": "6cff5bc9-560b-4951-bbdb-ed50642b7848",
+      "credentials": {
+        "telegramApi": {
+          "id": "0vSzsoInEfTGHS1W",
+          "name": "Telegram account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-05-29T15:34:58.000Z",
+  "versionId": "d20c1922-16bf-4cee-bbc2-2672c3f98c81"
+}
