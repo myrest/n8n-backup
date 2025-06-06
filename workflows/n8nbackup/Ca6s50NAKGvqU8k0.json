@@ -765,7 +765,9 @@
       "parameters": {
         "chatId": "=5513588652",
         "text": "備份完成",
-        "additionalFields": {}
+        "additionalFields": {
+          "appendAttribution": false
+        }
       },
       "id": "e2721343-04e0-49a0-9594-14e15f4a02a1",
       "name": "Send Analysis",
@@ -868,6 +870,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2025-06-06T06:20:41.000Z",
-  "versionId": "a92b53ff-ee2c-49f5-8e5b-5d4a14e590a8"
+  "updatedAt": "2025-06-06T06:21:54.000Z",
+  "versionId": "40a2d782-20d8-4434-b71e-ebeac45b2d78"
 }
