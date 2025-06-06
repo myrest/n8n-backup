@@ -767,6 +767,7 @@
       ],
       "webhookId": "8f97947a-ddce-4176-b5ac-53d5531ce9ba",
       "typeVersion": 1.2,
+      "executeOnce": true,
       "credentials": {
         "telegramApi": {
           "id": "0vSzsoInEfTGHS1W",
@@ -872,6 +873,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2025-06-06T06:27:34.000Z",
-  "versionId": "58222980-d022-4e98-b1dc-db5e2ffa95e7"
+  "updatedAt": "2025-06-06T06:30:05.000Z",
+  "versionId": "6fa13925-82a0-4854-b32d-aa9ce7161bc6"
 }
