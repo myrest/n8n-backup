@@ -23,18 +23,6 @@
         ]
       ]
     },
-    "If file too large": {
-      "main": [
-        [
-          {
-            "node": "Get Base64",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        []
-      ]
-    },
     "Merge Items": {
       "main": [
         [
@@ -141,7 +129,7 @@
       "main": [
         [
           {
-            "node": "Limit",
+            "node": "Send Analysis",
             "type": "main",
             "index": 0
           }
@@ -170,7 +158,7 @@
       "main": [
         [
           {
-            "node": "If file too large",
+            "node": "If",
             "type": "main",
             "index": 0
           }
@@ -198,17 +186,6 @@
         [
           {
             "node": "Loop Over Items",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Limit": {
-      "main": [
-        [
-          {
-            "node": "Send Analysis",
             "type": "main",
             "index": 0
           }
@@ -298,6 +275,24 @@
           }
         ]
       ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Get Base64",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Merge Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-06-06T02:53:37.125Z",
@@ -360,50 +355,6 @@
         1275
       ],
       "typeVersion": 3.3
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "version": 1,
-            "leftValue": "",
-            "caseSensitive": true,
-            "typeValidation": "strict"
-          },
-          "conditions": [
-            {
-              "id": "45ce825e-9fa6-430c-8931-9aaf22c42585",
-              "operator": {
-                "type": "string",
-                "operation": "empty",
-                "singleValue": true
-              },
-              "leftValue": "={{ $json.content }}",
-              "rightValue": ""
-            },
-            {
-              "id": "9619a55f-7fb1-4f24-b1a7-7aeb82365806",
-              "operator": {
-                "type": "string",
-                "operation": "notExists",
-                "singleValue": true
-              },
-              "leftValue": "={{ $json.error }}",
-              "rightValue": ""
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "id": "a0bc921f-751b-4bfc-b1ac-e4b26fd5306a",
-      "name": "If file too large",
-      "type": "n8n-nodes-base.if",
-      "position": [
-        1260,
-        1200
-      ],
-      "typeVersion": 2
     },
     {
       "parameters": {},
@@ -665,17 +616,6 @@
     },
     {
       "parameters": {},
-      "type": "n8n-nodes-base.limit",
-      "typeVersion": 1,
-      "position": [
-        1040,
-        540
-      ],
-      "id": "37bdee77-96eb-4461-a711-a2686628bb84",
-      "name": "Limit"
-    },
-    {
-      "parameters": {},
       "type": "n8n-nodes-base.executionData",
       "typeVersion": 1,
       "position": [
@@ -831,7 +771,7 @@
       "name": "Send Analysis",
       "type": "n8n-nodes-base.telegram",
       "position": [
-        1260,
+        1040,
         540
       ],
       "webhookId": "8f97947a-ddce-4176-b5ac-53d5531ce9ba",
@@ -851,7 +791,7 @@
       "typeVersion": 2,
       "position": [
         1700,
-        1200
+        1125
       ],
       "id": "6f2fae5c-c997-4cbd-bb64-6000f6303d44",
       "name": "Code"
@@ -874,10 +814,44 @@
       "typeVersion": 3.4,
       "position": [
         1480,
-        1200
+        1125
       ],
       "id": "a8f783d7-3d7b-4551-a214-f3492b7b1834",
       "name": "Get Base64"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "3fd47820-bbd7-432d-b714-c8ca00018002",
+              "leftValue": "={{ $json.error }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notExists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1260,
+        1200
+      ],
+      "id": "87785794-ffe2-4868-b2ab-7a6cf98ba241",
+      "name": "If"
     }
   ],
   "pinData": {},
@@ -894,6 +868,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2025-06-06T06:01:09.000Z",
-  "versionId": "315f9163-6063-4941-b650-a860a8fed0de"
+  "updatedAt": "2025-06-06T06:20:41.000Z",
+  "versionId": "a92b53ff-ee2c-49f5-8e5b-5d4a14e590a8"
 }
