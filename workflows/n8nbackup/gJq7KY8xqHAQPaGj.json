@@ -725,21 +725,7 @@
       "name": "Code1"
     }
   ],
-  "pinData": {
-    "Execute Workflow Trigger": [
-      {
-        "json": {
-          "createdAt": "2025-05-13T07:54:17.938Z",
-          "updatedAt": "2025-06-06T06:42:30.051Z",
-          "id": "i6gapvDqvKpQSI0r",
-          "name": "SMTP account",
-          "data": "eyJ1c2VyIjoibXlyZXN0QGdtYWlsLmNvbV9YWFhYIiwicGFzc3dvcmQiOiJ0cXhjIHBidWEgaWlsYiBxbnRiIiwiaG9zdCI6InNtdHAuZ21haWwuY29tIn0=",
-          "type": "smtp",
-          "isManaged": false
-        }
-      }
-    ]
-  },
+  "pinData": {},
   "settings": {
     "executionOrder": "v1"
   },
@@ -757,6 +743,6 @@
     }
   ],
   "triggerCount": 1,
-  "updatedAt": "2025-06-06T08:11:19.000Z",
-  "versionId": "4bf3ed6a-babc-4a69-a79a-4ce13fb18975"
+  "updatedAt": "2025-06-19T13:43:01.000Z",
+  "versionId": "e6a9f93d-f70a-4917-85b7-82cc6f5169a7"
 }
