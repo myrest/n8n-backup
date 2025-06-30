@@ -1,0 +1,2031 @@
+{
+  "active": false,
+  "connections": {
+    "設定變數": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "設定變數",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "建立資料",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "產生繪畫提示詞",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get all Story",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "GetAllVideofile",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "產生繪本圖檔": {
+      "main": [
+        [
+          {
+            "node": "照片轉影片",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items1": {
+      "main": [
+        [
+          {
+            "node": "合併單一檔案1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "GetStory",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "照片轉影片": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Get Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Status": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Airtable",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "建立資料": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetStory": {
+      "main": [
+        [
+          {
+            "node": "Execute Workflow - SenceToVideo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "產生繪畫提示詞": {
+      "main": [
+        [
+          {
+            "node": "產生繪本圖檔",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "取得Status為0": {
+      "main": [
+        [
+          {
+            "node": "是否有需要補轉",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow - SenceToVideo": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "GetStory1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetStory1": {
+      "main": [
+        [
+          {
+            "node": "Execute Workflow - SenceToVideo補",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get all Story": {
+      "main": [
+        [
+          {
+            "node": "取出整個故事內容",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GetAllVideofile": {
+      "main": [
+        [
+          {
+            "node": "取得所有單一影音檔",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "最後的合併": {
+      "main": [
+        [
+          {
+            "node": "Wait1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait1": {
+      "main": [
+        [
+          {
+            "node": "確認合併狀態",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "最後的合併1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow - SenceToVideo補": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "設定變數1": {
+      "main": [
+        [
+          {
+            "node": "取得Status為0",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "產生單一影片": {
+      "main": [
+        [
+          {
+            "node": "設定變數1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "是否有需要補轉": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "合併單一檔案",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "確認合併狀態": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "取得所有單一影音檔": {
+      "main": [
+        [
+          {
+            "node": "最後的合併",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "最後的合併1": {
+      "main": [
+        [
+          {
+            "node": "Send Analysis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-06-02T08:37:15.759Z",
+  "id": "tDlZkiOVNt6yIHLA",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "繪本第二版",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0f92a3dc-22d5-466e-b1f8-69c0045055ff",
+              "name": "pollinations_token",
+              "value": "v58NNo7fauiWtBsS",
+              "type": "string"
+            },
+            {
+              "id": "35968b04-2ff7-466a-a8e8-c23328032958",
+              "name": "seed",
+              "value": "={{ Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000 }}",
+              "type": "string"
+            },
+            {
+              "id": "d6d50a69-8d15-4990-aa43-c34eb25e4546",
+              "name": "=timestamp",
+              "value": "={{ Math.floor(Date.now() / 1000) }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1520,
+        -800
+      ],
+      "id": "316b07d0-26cc-4529-9529-0e1986621216",
+      "name": "設定變數"
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -1740,
+        -800
+      ],
+      "id": "313c494a-aaa7-4313-9576-969936a3d5f3",
+      "name": "Telegram Trigger",
+      "webhookId": "cd302a47-8444-43b3-a636-18deeb6f8c32",
+      "credentials": {
+        "telegramApi": {
+          "id": "0vSzsoInEfTGHS1W",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const rawString = $input.first().json.message.content;// 獲取你的輸入字串\nconst startDelimiter = '```json\\n';\nconst endDelimiter = '\\n```'; // 注意：這裡的結束分隔符只包含換行和三個反引號\nconst startIndex = rawString.indexOf(startDelimiter);\nconst endIndex = rawString.indexOf(endDelimiter, startIndex); // 從開始分隔符之後尋找結束分隔符\nlet jsonString;\n\nif (startIndex !== -1 && endIndex !== -1) {\n    // 找到了開頭和結尾分隔符\n    // 從 '```json\\n' 的下一個字元開始，直到 '\\n```' 的前一個字元\n    jsonString = rawString.substring(startIndex + startDelimiter.length, endIndex);\n} else {\n    // 如果沒有找到特定的包裹格式，則假設整個字串就是 JSON\n    console.warn('String does not seem to be wrapped with \"```json\\\\n\" and \"\\\\n```\". Attempting direct parse.');\n    jsonString = rawString;\n}\ntry {\n    const jsonObject = JSON.parse(jsonString);\n    return jsonObject;\n} catch (e) {\n    throw new Error(`Failed to parse JSON. Raw string (or extracted part): \"${jsonString.substring(0, 200)}...\" Error: ${e.message}`);\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -924,
+        -800
+      ],
+      "id": "62b94ead-fadd-4be6-9ea7-0b1bd3f2d53d",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "action"
+            },
+            {
+              "name": "scene"
+            },
+            {
+              "name": "paragraph"
+            },
+            {
+              "name": "token"
+            },
+            {
+              "name": "timestamp",
+              "type": "number"
+            },
+            {
+              "name": "story"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -1740,
+        345
+      ],
+      "id": "e57afe38-401f-4b01-aa74-5834d961e450",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.action }}",
+                    "rightValue": "SenceToVideo",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "33fee299-2cd3-4d03-9504-5be11d3f31af"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "20050ad7-2521-4eb6-8b65-b65876120435",
+                    "leftValue": "={{ $json.action }}",
+                    "rightValue": "GetStory",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "9e173d0e-6efb-4a39-91f4-a387d58f4cfa",
+                    "leftValue": "={{ $json.action }}",
+                    "rightValue": "MergeVideo",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -1520,
+        345
+      ],
+      "id": "73df32c7-087e-447c-8776-fdd815369bcb",
+      "name": "Switch",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "url": "=https://image.pollinations.ai/prompt/{{ encodeURIComponent($json.message.content) }}%20With%20Minimalist%20Colored%20Pencil%20Style.",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "httpBearerAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "token",
+              "value": "={{ $('Switch').item.json.token }}"
+            },
+            {
+              "name": "referrer",
+              "value": "gxrrgj6t-443.asse.devtunnels.ms"
+            },
+            {
+              "name": "seed",
+              "value": "={{ $('Switch').item.json.timestamp }}"
+            },
+            {
+              "name": "private",
+              "value": "true"
+            },
+            {
+              "name": "width",
+              "value": "1024"
+            },
+            {
+              "name": "height",
+              "value": "768"
+            },
+            {
+              "name": "nologo",
+              "value": "true"
+            },
+            {
+              "name": "model",
+              "value": "midjourney"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -924,
+        145
+      ],
+      "id": "74f35d9f-5898-4064-ace6-b42e7426925f",
+      "name": "產生繪本圖檔",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "VeQg4nYZVc5tRPce",
+          "name": "Bearer Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -484,
+        -800
+      ],
+      "id": "66424984-fcf4-4167-aea3-00a71b9c103b",
+      "name": "Loop Over Items1"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appwEAXL3NashY3Ju",
+          "mode": "list",
+          "cachedResultName": "繪本",
+          "cachedResultUrl": "https://airtable.com/appwEAXL3NashY3Ju"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblvWlgKBc1cHUW6y",
+          "mode": "list",
+          "cachedResultName": "001",
+          "cachedResultUrl": "https://airtable.com/appwEAXL3NashY3Ju/tblvWlgKBc1cHUW6y"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "timestamp": "={{ $('When Executed by Another Workflow').item.json.timestamp }}",
+            "audio_duration": "={{ $json.data.audio_duration }}",
+            "paragraph": "={{ $('When Executed by Another Workflow').item.json.paragraph }}",
+            "Status": "2",
+            "video_path": "={{ $json.data.videos.first() }}"
+          },
+          "matchingColumns": [
+            "timestamp",
+            "paragraph"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "sequence",
+              "displayName": "sequence",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "paragraph",
+              "displayName": "paragraph",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "scene",
+              "displayName": "scene",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "timestamp",
+              "displayName": "timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "video_path",
+              "displayName": "video_path",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "audio_duration",
+              "displayName": "audio_duration",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        176,
+        145
+      ],
+      "id": "b8c79caf-8a80-4bc0-8689-e6163e79435a",
+      "name": "Airtable",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "ckwlAnEfq7dI2kS0",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://host.docker.internal:8080/api/v1/imagesubtitle",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"bgm_file\": \"\",\n    \"bgm_type\": \"random\",\n    \"bgm_volume\": 0.2,\n    \"font_name\": \"STHeitiMedium.ttc\",\n    \"font_size\": 60,\n    \"image_base64\": \"{{ $input.first().binary[\"data\"].data }}\",\n    \"stroke_color\": \"#000000\",\n    \"stroke_width\": 1.5,\n    \"subtitle_enabled\": \"true\",\n    \"subtitle_position\": \"bottom\",\n    \"text_background_color\": true,\n    \"text_fore_color\": \"#FFFFFF\",\n    \"video_language\": \"zh-tw\",\n    \"video_script\": \"{{ $('Switch').item.json.paragraph }}\",\n    \"video_source\": \"local\",\n    \"voice_name\": \"azure-openai:nova\",\n    \"voice_rate\": 1.0,\n    \"voice_volume\": 1.0\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -704,
+        145
+      ],
+      "id": "e8bdbed8-5a54-4970-8bea-8f822c0ffcd0",
+      "name": "照片轉影片"
+    },
+    {
+      "parameters": {
+        "amount": 1
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        -484,
+        145
+      ],
+      "id": "c01c6522-5fa6-4b6c-992a-f525f8c285f8",
+      "name": "Wait",
+      "webhookId": "ee37d450-48a0-435c-a232-d0f049ca0cb1"
+    },
+    {
+      "parameters": {
+        "url": "=http://host.docker.internal:8080/api/v1/tasks/{{ $json.data.task_id }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -264,
+        70
+      ],
+      "id": "ca336689-f3ce-42cb-a3bf-b55f25a01efb",
+      "name": "Get Status"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "9b6fe6d5-027e-40a6-b4a5-47333a06edd8",
+              "leftValue": "={{ $json.data.progress }}",
+              "rightValue": 100,
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -44,
+        145
+      ],
+      "id": "bde879d6-d788-4126-a94e-3fd4db9a49c1",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "id"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "你是一位擅長為12歲兒童設計繪本分鏡的專家。請根據使用者提供的需求，創作繪本內容並將其拆分為獨立的分鏡。每個分鏡都應該包含故事的敘述和對應的場景描述，適合繪本的排版。請以 **JSON 格式** 回覆，且每個物件都必須包含以下兩個屬性：\n\n1.  **\"sequence\"**: 場景順序。\n2.  **\"paragraph\"**: 故事內容，以中文呈現，適合12歲兒童閱讀。\n3.  **\"scene\"**: 場景描述，以英文呈現，包含以下子屬性：\n    * **\"description\"**: 場景的詳細描述。\n    * **\"characters\"**: 人物的外觀描述。\n    * **\"action\"**: 人物的肢體動作。\n\n**輸出範例：**\n```json\n[\n  {\n    \"sequence\": 1,\n    \"paragraph\": \"在一個陽光明媚的日子裡，北風和太陽在草地上相遇\",\n    \"scene\": {\n      \"action\": \"The Sun smiles brightly while the North Wind puffs up his cheeks, creating a chilly breeze.\",\n      \"characters\": \"The Sun, personified as a cheerful, glowing character with a golden aura. The North Wind, depicted as a swirling, icy figure with a frosty appearance.\",\n      \"description\": \"A bright day with a clear blue sky and fluffy clouds. The sun shines warmly over a grassy field.\"\n    }\n  }\n]",
+              "role": "system"
+            },
+            {
+              "content": "=請產生故事：{{ $('Telegram Trigger').item.json.message.text }}"
+            }
+          ]
+        },
+        "jsonOutput": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -1300,
+        -800
+      ],
+      "id": "a108bb4c-72ef-4107-9813-d551a7ed4122",
+      "name": "OpenAI",
+      "credentials": {
+        "openAiApi": {
+          "id": "5ibry7EtqlW5Ub8k",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "base": {
+          "__rl": true,
+          "value": "appwEAXL3NashY3Ju",
+          "mode": "list",
+          "cachedResultName": "繪本",
+          "cachedResultUrl": "https://airtable.com/appwEAXL3NashY3Ju"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblvWlgKBc1cHUW6y",
+          "mode": "list",
+          "cachedResultName": "001",
+          "cachedResultUrl": "https://airtable.com/appwEAXL3NashY3Ju/tblvWlgKBc1cHUW6y"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "timestamp": "={{ $('設定變數').item.json.timestamp }}",
+            "scene": "={{ JSON.stringify($json.scene) }}",
+            "paragraph": "={{ $json.paragraph }}",
+            "sequence": "={{ $json.sequence }}"
+          },
+          "matchingColumns": [
+            "timestamp",
+            "paragraph"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "sequence",
+              "displayName": "sequence",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "paragraph",
+              "displayName": "paragraph",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "scene",
+              "displayName": "scene",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "timestamp",
+              "displayName": "timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "vodeo_path",
+              "displayName": "vodeo_path",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "audio_duration",
+              "displayName": "audio_duration",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -704,
+        -800
+      ],
+      "id": "04fde710-3cc9-4b23-8dde-dc542ce04ba7",
+      "name": "建立資料",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "ckwlAnEfq7dI2kS0",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "tDlZkiOVNt6yIHLA",
+          "mode": "list",
+          "cachedResultName": "繪本第二版"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "GetStory",
+            "timestamp": "={{ $json.fields.timestamp }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "scene",
+              "displayName": "scene",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "paragraph",
+              "displayName": "paragraph",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "token",
+              "displayName": "token",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "timestamp",
+              "displayName": "timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number"
+            },
+            {
+              "id": "story",
+              "displayName": "story",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -264,
+        -800
+      ],
+      "id": "0f630232-d9d1-4496-9066-6a7312661ddb",
+      "name": "GetStory",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "id"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=You are an expert at creating English descriptions for AI image generation. Your output must align with the story's plot and content, specifically for a children's picture book suitable for 12-year-olds. The visual style should be a colored pencil illustration. Provide only the English descriptions, no additional replies. The story is as follows.\n {{ $json.paragraph }}",
+              "role": "system"
+            },
+            {
+              "content": "=Please generate prompt words according to the follows scene\n{{ $json.scene }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -1300,
+        145
+      ],
+      "id": "42e107d0-e164-4e80-bc17-1c1b60fa0ee0",
+      "name": "產生繪畫提示詞",
+      "credentials": {
+        "openAiApi": {
+          "id": "5ibry7EtqlW5Ub8k",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appwEAXL3NashY3Ju",
+          "mode": "list",
+          "cachedResultName": "繪本",
+          "cachedResultUrl": "https://airtable.com/appwEAXL3NashY3Ju"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblvWlgKBc1cHUW6y",
+          "mode": "list",
+          "cachedResultName": "001",
+          "cachedResultUrl": "https://airtable.com/appwEAXL3NashY3Ju/tblvWlgKBc1cHUW6y"
+        },
+        "filterByFormula": "=AND(({timestamp} = {{ $json.timestamp }}) , ({Status} = 0 ) )",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -1300,
+        -290
+      ],
+      "id": "d4bbf852-d49e-4adc-b550-68a48a32b905",
+      "name": "取得Status為0",
+      "alwaysOutputData": true,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "ckwlAnEfq7dI2kS0",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "tDlZkiOVNt6yIHLA",
+          "mode": "list",
+          "cachedResultName": "繪本第二版"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "scene": "={{ $('Loop Over Items1').item.json.fields.scene }}",
+            "paragraph": "={{ $('Loop Over Items1').item.json.fields.paragraph }}",
+            "action": "SenceToVideo",
+            "token": "={{ $('設定變數').item.json.pollinations_token }}",
+            "timestamp": "={{ $('設定變數').item.json.timestamp }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "scene",
+              "displayName": "scene",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "paragraph",
+              "displayName": "paragraph",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "token",
+              "displayName": "token",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "timestamp",
+              "displayName": "timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -44,
+        -725
+      ],
+      "id": "4f07ae55-e5bb-49c8-bec7-d7670f16b246",
+      "name": "Execute Workflow - SenceToVideo"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -860,
+        -390
+      ],
+      "id": "f6326798-a876-4270-8e9e-5a2a351b609a",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "tDlZkiOVNt6yIHLA",
+          "mode": "list",
+          "cachedResultName": "繪本第二版"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "GetStory",
+            "timestamp": "={{ $('設定變數1').item.json.timestamp }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "scene",
+              "displayName": "scene",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "paragraph",
+              "displayName": "paragraph",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "token",
+              "displayName": "token",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "timestamp",
+              "displayName": "timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number"
+            },
+            {
+              "id": "story",
+              "displayName": "story",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -640,
+        -465
+      ],
+      "id": "2aceba3b-9739-494e-800a-08f801403d49",
+      "name": "GetStory1",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appwEAXL3NashY3Ju",
+          "mode": "list",
+          "cachedResultName": "繪本",
+          "cachedResultUrl": "https://airtable.com/appwEAXL3NashY3Ju"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblvWlgKBc1cHUW6y",
+          "mode": "list",
+          "cachedResultName": "001",
+          "cachedResultUrl": "https://airtable.com/appwEAXL3NashY3Ju/tblvWlgKBc1cHUW6y"
+        },
+        "filterByFormula": "=({timestamp} = {{ $json.timestamp }}) ",
+        "options": {},
+        "sort": {
+          "property": [
+            {
+              "field": "sequence"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -1222,
+        345
+      ],
+      "id": "07b77d5e-dcd1-4573-a7de-8bff4005fbc2",
+      "name": "Get all Story",
+      "alwaysOutputData": true,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "ckwlAnEfq7dI2kS0",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appwEAXL3NashY3Ju",
+          "mode": "list",
+          "cachedResultName": "繪本",
+          "cachedResultUrl": "https://airtable.com/appwEAXL3NashY3Ju"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblvWlgKBc1cHUW6y",
+          "mode": "list",
+          "cachedResultName": "001",
+          "cachedResultUrl": "https://airtable.com/appwEAXL3NashY3Ju/tblvWlgKBc1cHUW6y"
+        },
+        "filterByFormula": "=AND(({timestamp} = {{ $json.timestamp }}) , ({Status} = 2 ))",
+        "options": {
+          "fields": [
+            "video_path"
+          ]
+        },
+        "sort": {
+          "property": [
+            {
+              "field": "sequence"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -1222,
+        545
+      ],
+      "id": "78b629b2-a241-4b03-b190-f4682122b06c",
+      "name": "GetAllVideofile",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "ckwlAnEfq7dI2kS0",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://host.docker.internal:8080/api/v1/merge",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.toJsonString() }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -704,
+        545
+      ],
+      "id": "35073951-0364-47d8-945e-95919f9a2349",
+      "name": "最後的合併"
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\nlet combinedString = '';\nconst stringsToCombine = [];\n\nfor (const item of items) {\n  if (item.json && item.json.paragraph) {\n    stringsToCombine.push(item.json.paragraph);\n  }\n}\n\ncombinedString = stringsToCombine.join(' ');\n\nreturn { response:  combinedString};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -924,
+        345
+      ],
+      "id": "ecb5f8d2-7e71-4a59-b2ab-4569ada8b407",
+      "name": "取出整個故事內容"
+    },
+    {
+      "parameters": {
+        "amount": 3
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        -484,
+        545
+      ],
+      "id": "5974f057-f3b9-41ae-9b1a-29378801fe58",
+      "name": "Wait1",
+      "webhookId": "42151e8e-6570-4ca3-b48a-91abf8a03653"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "9b6fe6d5-027e-40a6-b4a5-47333a06edd8",
+              "leftValue": "={{ $json.data.progress }}",
+              "rightValue": 100,
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -44,
+        545
+      ],
+      "id": "2c1de3e5-7dae-45f8-8958-1e3ce8629acd",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "operation": "sendVideo",
+        "chatId": "=5513588652",
+        "binaryData": true,
+        "additionalFields": {}
+      },
+      "id": "c7cfa9b8-140f-4eee-a9e8-e4a676b0442e",
+      "name": "Send Analysis",
+      "type": "n8n-nodes-base.telegram",
+      "position": [
+        396,
+        545
+      ],
+      "webhookId": "8b9ee36b-b924-452e-81fa-9b6ba63ef136",
+      "typeVersion": 1.2,
+      "credentials": {
+        "telegramApi": {
+          "id": "0vSzsoInEfTGHS1W",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "tDlZkiOVNt6yIHLA",
+          "mode": "list",
+          "cachedResultName": "繪本第二版"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "story": "={{ $json.response }}",
+            "action": "SenceToVideo",
+            "scene": "={{ $('Loop Over Items').item.json.scene }}",
+            "paragraph": "={{ $('Loop Over Items').item.json.paragraph }}",
+            "timestamp": "={{ $('設定變數1').item.json.timestamp }}",
+            "token": "={{ $('設定變數1').item.json.pollinations_token }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "scene",
+              "displayName": "scene",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "paragraph",
+              "displayName": "paragraph",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "token",
+              "displayName": "token",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "timestamp",
+              "displayName": "timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number"
+            },
+            {
+              "id": "story",
+              "displayName": "story",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -420,
+        -390
+      ],
+      "id": "e0c14478-da52-45b6-bfa2-8d362042dd8f",
+      "name": "Execute Workflow - SenceToVideo補"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0f92a3dc-22d5-466e-b1f8-69c0045055ff",
+              "name": "pollinations_token",
+              "value": "v58NNo7fauiWtBsS",
+              "type": "string"
+            },
+            {
+              "id": "d6d50a69-8d15-4990-aa43-c34eb25e4546",
+              "name": "=timestamp",
+              "value": "=1749021869",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1520,
+        -290
+      ],
+      "id": "8e244e5b-8f6d-40a8-9757-d149c5856279",
+      "name": "設定變數1"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1740,
+        -290
+      ],
+      "id": "2185b2b1-145d-4e08-b52d-90c382129ea8",
+      "name": "產生單一影片"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "tDlZkiOVNt6yIHLA",
+          "mode": "list",
+          "cachedResultName": "繪本第二版"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "MergeVideo",
+            "timestamp": "={{ $('設定變數1').item.json.timestamp }}",
+            "token": "={{ $('設定變數1').item.json.pollinations_token }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "scene",
+              "displayName": "scene",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": true
+            },
+            {
+              "id": "paragraph",
+              "displayName": "paragraph",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": true
+            },
+            {
+              "id": "token",
+              "displayName": "token",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "timestamp",
+              "displayName": "timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            },
+            {
+              "id": "story",
+              "displayName": "story",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -860,
+        -190
+      ],
+      "id": "89daba93-9acb-47bf-875a-5ebdc1373ebe",
+      "name": "合併單一檔案"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.id }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "number",
+                      "operation": "exists",
+                      "singleValue": true
+                    },
+                    "id": "c37d6369-2d60-4c60-b7e9-f53e5a88e711"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "0464ef9d-3cdf-42f6-b1b0-f6988cb1d849",
+                    "leftValue": "={{ $json.id }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "number",
+                      "operation": "notExists",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "looseTypeValidation": "=",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -1080,
+        -290
+      ],
+      "id": "3e9ea4c2-e17c-40b6-bce2-5a130b9a6476",
+      "name": "是否有需要補轉"
+    },
+    {
+      "parameters": {
+        "url": "=http://host.docker.internal:8080/api/v1/tasks/{{ $json.data.task_id }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -264,
+        420
+      ],
+      "id": "4ff934aa-755f-4e48-832c-1e5cf12c3253",
+      "name": "確認合併狀態"
+    },
+    {
+      "parameters": {
+        "jsCode": "const inputItems = $input.all(); // 獲取所有傳入的資料項目\nconst names = [];\n\n// 迭代每一個輸入項目，取出 'name' 屬性\nfor (const item of inputItems) {\n  if (item.json && item.json.video_path) {\n    names.push(item.json.video_path);\n  }\n}\n\n// 將收集到的 'name' 陣列封裝成 { \"name\": [...] } 的物件\nreturn [{\n  json: {\n    video_sources: names\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -924,
+        545
+      ],
+      "id": "5697c332-df20-463c-8d17-1b295907d003",
+      "name": "取得所有單一影音檔"
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.data.merged_video }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        176,
+        545
+      ],
+      "id": "7eef3dca-0c95-40f7-a924-4bf2ec18f28a",
+      "name": "最後的合併1"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "tDlZkiOVNt6yIHLA",
+          "mode": "list",
+          "cachedResultName": "繪本第二版"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "MergeVideo",
+            "timestamp": "={{ $('設定變數').item.json.timestamp }}",
+            "token": "={{ $('設定變數').item.json.pollinations_token }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "scene",
+              "displayName": "scene",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": true
+            },
+            {
+              "id": "paragraph",
+              "displayName": "paragraph",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": true
+            },
+            {
+              "id": "token",
+              "displayName": "token",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "timestamp",
+              "displayName": "timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            },
+            {
+              "id": "story",
+              "displayName": "story",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -264,
+        -1000
+      ],
+      "id": "7f965c06-4244-44a1-8510-9f12419d599d",
+      "name": "合併單一檔案1",
+      "executeOnce": true
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-06-06T06:00:31.000Z",
+  "versionId": "1cfc2cdd-d37c-4df2-9b00-951712f44e1f"
+}
