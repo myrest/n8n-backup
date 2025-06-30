@@ -1,0 +1,970 @@
+{
+  "active": false,
+  "connections": {
+    "設定變數": {
+      "main": [
+        [
+          {
+            "node": "產生故事",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "設定變數",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "產生故事": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "建立及重設資料",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "產生圖檔描寫",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "產生圖檔描寫": {
+      "main": [
+        [
+          {
+            "node": "產生繪本圖檔",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "產生繪本圖檔": {
+      "main": [
+        [
+          {
+            "node": "照片轉影片",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items1": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Execute Workflow1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "建立及重設資料": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "照片轉影片": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Airtable",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Get Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Status": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-06-01T00:24:22.216Z",
+  "id": "IbCciO58gxeuCO0o",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "繪本第一版",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0f92a3dc-22d5-466e-b1f8-69c0045055ff",
+              "name": "pollinations_token",
+              "value": "v58NNo7fauiWtBsS",
+              "type": "string"
+            },
+            {
+              "id": "e5cd2a63-ec3e-4190-8b89-7523e5d5bcf8",
+              "name": "context",
+              "value": "=你擅長適合12歲兒童閱讀的繪本分鏡設計，請需求產生內容，並依順序拆分成分鏡內容，適合做繪本的編排，使用Json格式回覆，其屬性scene：場景描述使用英文，必需包含場景、人物外觀、肢體動作等。屬性paragraph：內容為文章本身，使用中文。請產生故事：{{ $json.message.text }}",
+              "type": "string"
+            },
+            {
+              "id": "35968b04-2ff7-466a-a8e8-c23328032958",
+              "name": "seed",
+              "value": "={{ Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000 }}",
+              "type": "string"
+            },
+            {
+              "id": "d6d50a69-8d15-4990-aa43-c34eb25e4546",
+              "name": "=timestamp",
+              "value": "={{ Math.floor(Date.now() / 1000) }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1200,
+        -500
+      ],
+      "id": "465482a5-d5a0-4b78-95f9-e796a1b6422d",
+      "name": "設定變數"
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -1420,
+        -500
+      ],
+      "id": "f0ce59d8-2cf2-46a0-8b9b-a327e8e20941",
+      "name": "Telegram Trigger",
+      "webhookId": "36e6b19b-ed9a-4bca-b4d3-33aed0fc265d",
+      "credentials": {
+        "telegramApi": {
+          "id": "0vSzsoInEfTGHS1W",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://text.pollinations.ai/{{ encodeURIComponent($json.context) }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "httpBearerAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "token",
+              "value": "={{ $json.pollinations_token }}"
+            },
+            {
+              "name": "referrer",
+              "value": "gxrrgj6t-443.asse.devtunnels.ms"
+            },
+            {
+              "name": "seed",
+              "value": "={{ $json.seed }}"
+            },
+            {
+              "name": "private",
+              "value": "true"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -980,
+        -500
+      ],
+      "id": "ed611143-9d62-40e3-95a9-a4b65fe1c26f",
+      "name": "產生故事",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "VeQg4nYZVc5tRPce",
+          "name": "Bearer Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const rawString = $input.first().json.data;// 獲取你的輸入字串\nconst startDelimiter = '```json\\n';\nconst endDelimiter = '\\n```'; // 注意：這裡的結束分隔符只包含換行和三個反引號\nconst startIndex = rawString.indexOf(startDelimiter);\nconst endIndex = rawString.indexOf(endDelimiter, startIndex); // 從開始分隔符之後尋找結束分隔符\nlet jsonString;\n\nif (startIndex !== -1 && endIndex !== -1) {\n    // 找到了開頭和結尾分隔符\n    // 從 '```json\\n' 的下一個字元開始，直到 '\\n```' 的前一個字元\n    jsonString = rawString.substring(startIndex + startDelimiter.length, endIndex);\n} else {\n    // 如果沒有找到特定的包裹格式，則假設整個字串就是 JSON\n    console.warn('String does not seem to be wrapped with \"```json\\\\n\" and \"\\\\n```\". Attempting direct parse.');\n    jsonString = rawString;\n}\ntry {\n    const jsonObject = JSON.parse(jsonString);\n    return jsonObject;\n} catch (e) {\n    throw new Error(`Failed to parse JSON. Raw string (or extracted part): \"${jsonString.substring(0, 200)}...\" Error: ${e.message}`);\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -760,
+        -500
+      ],
+      "id": "705c73bf-8db9-4cbf-a9a4-878c03a0417b",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "action"
+            },
+            {
+              "name": "scene"
+            },
+            {
+              "name": "paragraph"
+            },
+            {
+              "name": "token"
+            },
+            {
+              "name": "timestamp",
+              "type": "number"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -1420,
+        -165
+      ],
+      "id": "f78e7173-3881-4483-992a-c612af72ce45",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.action }}",
+                    "rightValue": "SenceToVideo",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "33fee299-2cd3-4d03-9504-5be11d3f31af"
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -1200,
+        -165
+      ],
+      "id": "87f1fd2c-26d7-4c52-bc38-c68447defc89",
+      "name": "Switch",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "url": "=https://text.pollinations.ai/你擅長產生給AI用來產生圖檔的英文描述文字。請產生適合12歲兒童閱讀的繪本，風格為粉筆彩繪的描述並使用英文，需求如下：\"{{ $json.scene }}\"。[不需額外的回覆，直接依需求回覆內容]",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "httpBearerAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "token",
+              "value": "={{ $json.token }}"
+            },
+            {
+              "name": "referrer",
+              "value": "gxrrgj6t-443.asse.devtunnels.ms"
+            },
+            {
+              "name": "seed",
+              "value": "={{ $json.timestamp }}"
+            },
+            {
+              "name": "private",
+              "value": "true"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -980,
+        -165
+      ],
+      "id": "75c58ac8-49b2-44c4-beda-b83e3448a4ec",
+      "name": "產生圖檔描寫",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "VeQg4nYZVc5tRPce",
+          "name": "Bearer Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://image.pollinations.ai/prompt/{{ encodeURIComponent($json.data) }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "httpBearerAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "token",
+              "value": "={{ $('Switch').item.json.token }}"
+            },
+            {
+              "name": "referrer",
+              "value": "gxrrgj6t-443.asse.devtunnels.ms"
+            },
+            {
+              "name": "seed",
+              "value": "={{ $('Switch').item.json.timestamp }}"
+            },
+            {
+              "name": "private",
+              "value": "true"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -760,
+        -165
+      ],
+      "id": "6f288dea-2ed4-478d-897d-bc2fc898c623",
+      "name": "產生繪本圖檔",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "VeQg4nYZVc5tRPce",
+          "name": "Bearer Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "base": {
+          "__rl": true,
+          "value": "appwEAXL3NashY3Ju",
+          "mode": "list",
+          "cachedResultName": "繪本",
+          "cachedResultUrl": "https://airtable.com/appwEAXL3NashY3Ju"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblvWlgKBc1cHUW6y",
+          "mode": "list",
+          "cachedResultName": "001",
+          "cachedResultUrl": "https://airtable.com/appwEAXL3NashY3Ju/tblvWlgKBc1cHUW6y"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "timestamp": "={{ $('設定變數').item.json.timestamp }}",
+            "scene": "={{ $json.scene }}",
+            "paragraph": "={{ $json.paragraph }}",
+            "Status": "0"
+          },
+          "matchingColumns": [
+            "scene",
+            "timestamp"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "squence",
+              "displayName": "squence",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "scene",
+              "displayName": "scene",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "paragraph",
+              "displayName": "paragraph",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "image_text",
+              "displayName": "image_text",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "timestamp",
+              "displayName": "timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -540,
+        -500
+      ],
+      "id": "c5952072-e2d0-4123-9b78-f36d6d778e0a",
+      "name": "建立及重設資料",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "ckwlAnEfq7dI2kS0",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -320,
+        -500
+      ],
+      "id": "ddae164e-ef65-4bd0-bf5a-bf29b98ec260",
+      "name": "Loop Over Items1"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "IbCciO58gxeuCO0o",
+          "mode": "list",
+          "cachedResultName": "繪本"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "scene": "={{ $json.fields.scene }}",
+            "paragraph": "={{ $json.fields.paragraph }}",
+            "action": "SenceToVideo",
+            "token": "={{ $('設定變數').item.json.pollinations_token }}",
+            "timestamp": "={{ $json.fields.timestamp }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "scene",
+              "displayName": "scene",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "paragraph",
+              "displayName": "paragraph",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "token",
+              "displayName": "token",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "timestamp",
+              "displayName": "timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -100,
+        -500
+      ],
+      "id": "68d08730-729f-4b74-b1f4-1cf7e95d7f1c",
+      "name": "Execute Workflow1"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appwEAXL3NashY3Ju",
+          "mode": "list",
+          "cachedResultName": "繪本",
+          "cachedResultUrl": "https://airtable.com/appwEAXL3NashY3Ju"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblvWlgKBc1cHUW6y",
+          "mode": "list",
+          "cachedResultName": "001",
+          "cachedResultUrl": "https://airtable.com/appwEAXL3NashY3Ju/tblvWlgKBc1cHUW6y"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "timestamp": "={{ $json.timestamp }}",
+            "vodeo_path": "={{ $json.filename }}",
+            "scene": "={{ $json.scene }}",
+            "Status": "2"
+          },
+          "matchingColumns": [
+            "scene",
+            "timestamp"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "squence",
+              "displayName": "squence",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "scene",
+              "displayName": "scene",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "paragraph",
+              "displayName": "paragraph",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "image_text",
+              "displayName": "image_text",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "timestamp",
+              "displayName": "timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "vodeo_path",
+              "displayName": "vodeo_path",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        560,
+        -165
+      ],
+      "id": "8747c135-f1f2-4c7e-8124-25ec5f2fe835",
+      "name": "Airtable",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "ckwlAnEfq7dI2kS0",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://host.docker.internal:8080/api/v1/imagesubtitle",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"bgm_file\": \"\",\n    \"bgm_type\": \"random\",\n    \"bgm_volume\": 0.2,\n    \"font_name\": \"STHeitiMedium.ttc\",\n    \"font_size\": 60,\n    \"image_base64\": \"{{ $input.first().binary[\"data\"].data }}\",\n    \"stroke_color\": \"#000000\",\n    \"stroke_width\": 1.5,\n    \"subtitle_enabled\": \"true\",\n    \"subtitle_position\": \"bottom\",\n    \"text_background_color\": true,\n    \"text_fore_color\": \"#FFFFFF\",\n    \"video_language\": \"zh-tw\",\n    \"video_script\": \"{{ $('Switch').item.json.paragraph }}\",\n    \"video_source\": \"local\",\n    \"voice_name\": \"azure-openai:nova\",\n    \"voice_rate\": 1.0,\n    \"voice_volume\": 1.0\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -540,
+        -165
+      ],
+      "id": "ccb0a290-7c22-425f-8e24-7a6a56572707",
+      "name": "照片轉影片"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "53461481-f3f1-4a4b-a311-abe33112fbe1",
+              "name": "scene",
+              "value": "={{ $('Switch').item.json.scene }}",
+              "type": "string"
+            },
+            {
+              "id": "062cfa54-20a4-4caf-aae2-45050690fd17",
+              "name": "timestamp",
+              "value": "={{ $('Switch').item.json.timestamp }}",
+              "type": "number"
+            },
+            {
+              "id": "384be640-52a8-44e5-8670-b1e132edd23a",
+              "name": "filename",
+              "value": "={{ $json.data.videos[0] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        340,
+        -165
+      ],
+      "id": "53b9ab7d-9078-421d-8d2f-f65cd5b307ff",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "amount": 1
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        -320,
+        -165
+      ],
+      "id": "23a9540c-560a-46ad-81c0-0bb4bc757447",
+      "name": "Wait",
+      "webhookId": "391380f4-b457-4f2c-bebd-e68000c0af2a"
+    },
+    {
+      "parameters": {
+        "url": "=http://host.docker.internal:8080/api/v1/tasks/{{ $json.data.task_id }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -100,
+        -240
+      ],
+      "id": "4e6211fc-650c-483f-8344-7187ac94dd87",
+      "name": "Get Status"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "9b6fe6d5-027e-40a6-b4a5-47333a06edd8",
+              "leftValue": "={{ $json.data.progress }}",
+              "rightValue": 100,
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        120,
+        -165
+      ],
+      "id": "977dbbef-3e15-4e34-a192-4df9caa062fb",
+      "name": "If"
+    }
+  ],
+  "pinData": {
+    "When Executed by Another Workflow": [
+      {
+        "json": {
+          "token": "v58NNo7fauiWtBsS",
+          "action": "SenceToVideo",
+          "scene": "A windy mountain road under a cloudy sky. The North Wind appears as a big, strong man wearing a blue cloak swirling with gusts of wind. He is raising his arms, blowing fiercely with puffed cheeks.",
+          "paragraph": "北風吹著大山間的道路，天空陰沉，風勢猛烈。北風像個大力士，披著藍色斗篷，臉鼓得通紅，用力吹氣。",
+          "timestamp": 1748835558
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-06-09T12:46:54.000Z",
+  "versionId": "ccf3b5f2-4b34-4bfe-b52a-f2a1702e6e3c"
+}
