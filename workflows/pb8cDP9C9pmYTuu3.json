@@ -1,0 +1,234 @@
+{
+  "active": false,
+  "connections": {
+    "產生文字描述": {
+      "main": [
+        [
+          {
+            "node": "產生圖檔",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "設定變數": {
+      "main": [
+        [
+          {
+            "node": "產生文字描述",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "產生圖檔": {
+      "main": [
+        [
+          {
+            "node": "Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "設定變數",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-05-29T15:35:55.536Z",
+  "id": "pb8cDP9C9pmYTuu3",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "生圖",
+  "nodes": [
+    {
+      "parameters": {
+        "url": "=https://text.pollinations.ai/{{ encodeURIComponent($json.context) }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "httpBearerAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "token",
+              "value": "={{ $json.pollinations_token }}"
+            },
+            {
+              "name": "referrer",
+              "value": "gxrrgj6t-443.asse.devtunnels.ms×"
+            },
+            {
+              "name": "seed",
+              "value": "={{ $json.seed }}"
+            },
+            {
+              "name": "private",
+              "value": "true"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -980,
+        -280
+      ],
+      "id": "f36d5817-6126-4e4d-924b-720501ab400e",
+      "name": "產生文字描述",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "VeQg4nYZVc5tRPce",
+          "name": "Bearer Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0f92a3dc-22d5-466e-b1f8-69c0045055ff",
+              "name": "pollinations_token",
+              "value": "v58NNo7fauiWtBsS",
+              "type": "string"
+            },
+            {
+              "id": "e5cd2a63-ec3e-4190-8b89-7523e5d5bcf8",
+              "name": "context",
+              "value": "=請產生一段詳細並且適合使用AI來產生圖檔的英文描述，內容為：{{ $json.message.text }}[不需額外的回覆，直接依需求回覆內容]",
+              "type": "string"
+            },
+            {
+              "id": "35968b04-2ff7-466a-a8e8-c23328032958",
+              "name": "seed",
+              "value": "={{ Math.floor(Math.random() * (99999 - 10000 + 1)) + 10000 }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1200,
+        -280
+      ],
+      "id": "c8467e47-2ef6-47a9-ad25-694e75490b7f",
+      "name": "設定變數"
+    },
+    {
+      "parameters": {
+        "url": "=https://image.pollinations.ai/prompt/{{ encodeURIComponent($json.data) }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "httpBearerAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "token",
+              "value": "={{ $('設定變數').item.json.pollinations_token }}"
+            },
+            {
+              "name": "referrer",
+              "value": "gxrrgj6t-443.asse.devtunnels.ms×"
+            },
+            {
+              "name": "seed",
+              "value": "={{ $('設定變數').item.json.seed }}"
+            },
+            {
+              "name": "private",
+              "value": "true"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -760,
+        -280
+      ],
+      "id": "c5d70f32-e63f-4e9c-ba88-402150ee6256",
+      "name": "產生圖檔",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "VeQg4nYZVc5tRPce",
+          "name": "Bearer Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "sendPhoto",
+        "chatId": "={{ $('Telegram Trigger').item.json.message.from.id }}",
+        "binaryData": true,
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -540,
+        -280
+      ],
+      "id": "92843400-5b40-4668-90b9-b441ede297d5",
+      "name": "Telegram",
+      "webhookId": "cde89a71-b012-4a19-942c-32e6f3f42898",
+      "credentials": {
+        "telegramApi": {
+          "id": "0vSzsoInEfTGHS1W",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -1420,
+        -280
+      ],
+      "id": "c31a18b3-4386-46eb-b3b3-91372004b43b",
+      "name": "Telegram Trigger",
+      "webhookId": "276297fe-6d2d-4372-a11d-71a908fb0e65",
+      "credentials": {
+        "telegramApi": {
+          "id": "0vSzsoInEfTGHS1W",
+          "name": "Telegram account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-06-01T00:23:59.000Z",
+  "versionId": "569f05e0-75d9-414b-8ce5-07284c2733bd"
+}
