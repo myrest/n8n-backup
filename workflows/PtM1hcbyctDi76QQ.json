@@ -1,0 +1,82 @@
+{
+  "active": false,
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "createdAt": "2025-07-03T08:37:56.507Z",
+  "id": "PtM1hcbyctDi76QQ",
+  "isArchived": false,
+  "meta": null,
+  "name": "hmacsha256",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "message"
+            },
+            {
+              "name": "secretkey"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "e28d9b84-3e35-43d3-b1ff-51d0b7f6cd4a",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "language": "python",
+        "pythonCode": "import hmac\nimport hashlib\nimport binascii\nimport json\n\nsecret = _input.all()[0].json.secretkey\nmessage = _input.all()[0].json.message\n\nkey = secret.encode('utf-8')  # 將金鑰字串編碼為位元組\nmessage_bytes = message.encode('utf-8')  # 將訊息字串編碼為位元組\n\n# 建立 HMAC-SHA256 物件\nh = hmac.new(key, message_bytes, hashlib.sha256)\n\n# 取得雜湊值的十六進位表示\nreturn {\n  \"data\": binascii.hexlify(h.digest()).decode('utf-8')\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        220,
+        0
+      ],
+      "id": "ab30bbc3-51b7-46e3-ad0e-f0b0f1508f12",
+      "name": "Code"
+    }
+  ],
+  "pinData": {
+    "When Executed by Another Workflow": [
+      {
+        "json": {
+          "message": "timestamp=1752074845525",
+          "secretkey": "iLbLQqrjDKdIXR74dvLH6F8aA1s5ONWJ38G8VEMcl2A5abqF8hJDqyM5ySroqmLHLgeu8Nah901t6rnA"
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-07-09T15:42:42.000Z",
+  "versionId": "b46249c7-3b37-424a-af02-6c43e2cf82cf"
+}
