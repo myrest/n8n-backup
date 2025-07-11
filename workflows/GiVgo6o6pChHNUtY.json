@@ -599,6 +599,12 @@
               "name": "Google Doc ID",
               "type": "string",
               "value": "={{ $json.id }}"
+            },
+            {
+              "id": "e601d73a-e413-4750-921a-0b15bf668748",
+              "name": "",
+              "value": "",
+              "type": "string"
             }
           ]
         },
@@ -815,6 +821,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 2,
-  "updatedAt": "2025-05-21T15:02:19.000Z",
-  "versionId": "8d5042fc-4ca4-4aa3-b435-c99b3f870292"
+  "updatedAt": "2025-07-02T14:25:21.000Z",
+  "versionId": "256efb4c-ad1b-4920-af21-e607e5a00977"
 }
