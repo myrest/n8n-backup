@@ -1,0 +1,406 @@
+{
+  "active": false,
+  "connections": {
+    "TechnicalAnalysis": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculator": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [],
+        []
+      ]
+    },
+    "BingxTool_GET": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "BingxTool_UPDATE": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-07-07T02:50:58.201Z",
+  "id": "zse3AaC9YU9UDfr9",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "主流程_新N8N版",
+  "nodes": [
+    {
+      "parameters": {
+        "description": "Call this tool using a symbol to get a technical analysis. For stocks, this can be a number. For cryptocurrencies, the format must be a valid TradingView format EXCHANGE:SYMBOL, e.g. BINANCE:BTCUSDT.",
+        "workflowId": {
+          "__rl": true,
+          "value": "QD2fsvvai94zkAZr",
+          "mode": "list",
+          "cachedResultName": "分析"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "ticker": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('ticker', `For stocks, this can be a number or a string. For cryptocurrencies, the format must be a valid TradingView format EXCHANGE:SYMBOL, e.g. BINANCE:BTCUSDT.`, 'string') }}"
+          },
+          "matchingColumns": [
+            "ticker"
+          ],
+          "schema": [
+            {
+              "id": "ticker",
+              "displayName": "ticker",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.2,
+      "position": [
+        -440,
+        -1720
+      ],
+      "id": "a069ecaa-1272-4df1-9178-c0176ba30a40",
+      "name": "TechnicalAnalysis"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "typeVersion": 1,
+      "position": [
+        -320,
+        -1720
+      ],
+      "id": "a092cffa-54dd-4a0e-987f-486bd5c62615",
+      "name": "Calculator"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "## 1. 角色設定 (Persona)\n你是一位紀律嚴明、經驗豐富的量化交易操盤手。你的核心交易哲學是「**進場需保守，出場需積極**」。你完全依賴數據和預設的技術分析規則來做決策，排除任何情緒性交易。你的目標是在嚴格的風險控制下，尋求穩定的交易機會。\n\n## 2. 核心原則與決策邏輯 (Core Principles & Decision Logic)\n你必須嚴格遵循以下邏輯樹進行判斷：\n\n### A. 進場原則 (保守策略)\n- **多重信號確認**: 只有在 **至少兩個或以上** 的技術分析指標顯示一致的進場信號時，才考慮建立新的倉位。\n- **避免追高殺低**: 不在價格急速拉升或下跌時進場。優先尋找在關鍵支撐/阻力位附近出現反轉或突破回測信號的機會。\n\n### B. 出場原則 (積極策略)\n- **動能衰竭即離場**: 當持倉方向的價格動能出現減弱跡象（例如：RSI 出現背離、價格難以創出新高/新低），即使尚未觸及止盈目標，也應立即考慮獲利了結。\n- **關鍵價位失守即離場**: 如果價格跌破/漲破了當初進場時所依賴的關鍵支撐/阻力位，視為進場理由已失效，應立即止損出場。\n\n### C. 決策流程 (Decision Flow)\n\n**情境一：當前無持倉 (No Position)**\n1.  **檢查掛單**: 檢視由 `BingxTool_GET` 回傳的現有掛單。\n2.  **驗證掛單有效性**: 根據 `TechnicalAnalysis` 的最新數據，判斷原掛單的進場理由是否依然成立。\n3.  **決策**:\n    * **若理由失效**: 立即使用 `BingxTool_UPDATE` 取消舊掛單。\n    * **若理由依然有效**: 保留掛單，不進行任何操作。\n    * **若出現更優機會**: 根據「進場原則」，評估是否有新的、更符合條件的交易機會。若有，先使用 `BingxTool_UPDATE` 取消舊掛單，再建立新掛單。\n\n**情境二：當前有持倉 (Holding Position)**\n1.  **檢視持倉**: 檢視由 `BingxTool_GET` 回傳的倉位資訊（方向、開倉價、盈虧等）。\n2.  **分析當前走勢**: 根據 `TechnicalAnalysis` 的最新數據，評估價格走勢。\n3.  **決策**:\n    * **觸發止損 (Stop-Loss)**: 若價格走勢違反「出場原則 B」，立即使用 `BingxTool_UPDATE` 平倉止損。\n    * **觸發止盈 (Take-Profit)**: 若價格走勢符合「出場原則 A」，立即使用 `BingxTool_UPDATE` 平倉獲利。\n    * **若走勢健康**: 倉位繼續持有，不進行任何操作。\n\n## 3. 工具使用規範 (Tool Usage Protocol)\n- **`BingxTool_GET`**: **查詢專用工具**。用於獲取帳戶資金、持倉、掛單等所有**唯讀（read-only）**資訊。此工具**無法**執行任何交易或修改操作。\n- **`BingxTool_UPDATE`**: **異動專用工具**。用於執行所有會改變帳戶狀態的操作，包括下單、取消訂單、平倉、更新槓桿等。**所有交易執行都必須且只能使用此工具**。\n- **`TechnicalAnalysis`**: 用於獲取客觀的市場技術分析數據（如：支撐/阻力位、移動平均線、RSI、MACD 等）。這是你決策的主要信息來源。\n- **`Calculator`**: **必須**用於所有數值計算，特別是下單數量的計算，確保精確無誤。\n\n## 4. 標準作業流程 (Standard Operating Procedure - SOP)\n你每一次的執行都必須遵循以下順序：\n1.  **[查詢]** 固定第一步：調用 `BingxTool_GET`，獲取「帳戶餘額」、「當前持倉」和「當前掛單」的全部資訊。\n2.  **[分析]** 固定第二步：調用 `TechnicalAnalysis`，獲取最新的市場分析數據。\n3.  **[決策]** 根據上一步獲取的資訊，並嚴格遵循 `##2. 核心原則與決策邏輯` 進行判斷。\n4.  **[執行]** 如果決策需要交易操作（如下單、平倉、取消訂單），則調用 `BingxTool_UPDATE` 執行。如果決策為「無操作」，則不調用此工具。\n5.  **[報告]** 總結本次執行的所有步驟、決策依據和最終結果。\n\n## 5. 硬性限制與參數 (Hard Constraints & Parameters)\n- **單筆進場資金上限 (Max Capital per Trade)**: `100 USDT`\n- **槓桿倍數 (Leverage)**: `20x`\n- **下單數量計算 (Order Size Calculation)**:\n  - **公式**: `下單數量 = (100 * 20) / 進場價格`\n  - **指令**: 你**必須**使用 `Calculator` 工具來執行此計算。\n- **工具呼叫紀律**: 你必須嚴格、精確地遵循各工具的操作手冊 (Schema)。禁止傳遞任何手冊中未定義的參數，所有參數的名稱、類型和格式都必須完全匹配。"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        -460,
+        -1940
+      ],
+      "id": "93994cdb-041f-44ab-9fb6-4d8ae92a5d26",
+      "name": "AI Agent",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "contextWindowLength": 20
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        -560,
+        -1720
+      ],
+      "id": "5ff0acee-decc-41b2-9615-134ea4581d09",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -680,
+        -1720
+      ],
+      "id": "b6f3da0e-39c9-4c66-800b-360e8e09519b",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "5ibry7EtqlW5Ub8k",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -900,
+        -1940
+      ],
+      "id": "c41abf4e-ae83-45a2-adaa-6811071ffe85",
+      "name": "When chat message received",
+      "webhookId": "b40c8e36-4bdd-4311-8cd1-a8a098bd7da8"
+    },
+    {
+      "parameters": {
+        "description": "# 工具名稱: BingxTool_GET\n\n**工具描述**: 用於所有與查詢相關操作的專用工具，包括查詢帳戶資訊、掛單、持資料\n\n---\n\n### 功能 (Actions)\n\n#### 1. get_balance (查詢可用餘額)\n- **功能描述**: 獲取帳戶中可用於開倉的保證金餘額 (USDT)。\n- **`action` 參數**: `get_balance`\n- **輸入參數**: 無\n\n---\n\n#### 2. get_margintype (查詢持倉模式)\n- **功能描述**: 獲取當前指定交易對的持倉模式（逐倉或全倉）。\n- **`action` 參數**: `get_margintype`\n- **輸入參數**:\n| 參數 | 類型 | 是否必要 | 說明 |\n| :--- | :--- | :--- | :--- |\n| `symbol` | String | 是 | 交易對，格式為 \"BTC-USDT\" |\n---\n\n\n#### 3. get_positions (查詢目前持倉)\n- **功能描述**: 獲取當前所有持有的倉位詳細資料。\n- **`action` 參數**: `get_positions`\n- **輸入參數**: 無\n\n---\n\n#### 4. get_leverage (查詢目前槓桿)\n- **功能描述**: 查詢指定交易對目前的槓桿設定。\n- **`action` 參數**: `get_leverage`\n- **輸入參數**:\n| 參數 | 類型 | 是否必要 | 說明 |\n| :--- | :--- | :--- | :--- |\n| `symbol` | String | 是 | 交易對，格式為 \"BTC-USDT\" |\n\n---\n\n#### 5. get_open_orders (取得目前掛單)\n- **功能描述**: 根據指定的交易對，獲取所有尚未成交的掛單。\n- **`action` 參數**: `get_open_orders`\n- **輸入參數**:\n| 參數 | 類型 | 是否必要 | 說明 |\n| :--- | :--- | :--- | :--- |\n| `symbol` | String | 是 | 交易對，格式為 \"BTC-USDT\" |\n",
+        "workflowId": {
+          "__rl": true,
+          "value": "HLC57q9n8FwZOtLf",
+          "mode": "list",
+          "cachedResultName": "Bingx查詢專用"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('action', ``, 'string') }}",
+            "symbol": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('symbol', ``, 'string') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "symbol",
+              "displayName": "symbol",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.2,
+      "position": [
+        -200,
+        -1720
+      ],
+      "id": "d939c889-55e0-4332-8274-32d86034a678",
+      "name": "BingxTool_GET"
+    },
+    {
+      "parameters": {
+        "description": "# 工具名稱: BingxTool_UPDATE\n\n**工具描述**: 用於執行所有交易異動所相關操作的專用工具，包括管理倉位以及執行交易訂單。\n\n---\n\n### 功能 (Actions)\n\n#### 1. update_margin_type (更新持倉模式)\n- **功能描述**: 更新指定交易對的持倉模式（逐倉或全倉）。\n- **`action` 參數**: `update_margin_type`\n- **輸入參數**:\n| 參數 | 類型 | 是否必要 | 說明 |\n| :--- | :--- | :--- | :--- |\n| `symbol` | String | 是 | 交易對，格式為 \"BTC-USDT\" |\n| `marginType` | String | 是 | 可選值: `\"ISOLATED\"` (逐倉), `\"CROSSED\"` (全倉) |\n\n---\n\n#### 2. create_order (建立新訂單)\n- **功能描述**: 建立一個新的限價訂單，需附加止盈和止損價格。\n- **`action` 參數**: `create_order`\n- **使用說明**:\n  - 開設**多倉 (LONG)**: `side` 應為 `BUY`, `positionSide` 應為 `LONG`。\n  - 開設**空倉 (SHORT)**: `side` 應為 `SELL`, `positionSide` 應為 `SHORT`。\n- **輸入參數**:\n| 參數 | 類型 | 是否必要 | 說明 |\n| :--- | :--- | :--- | :--- |\n| `symbol` | String | 是 | 交易對，格式為 \"BTC-USDT\" |\n| `side` | String | 是 | 訂單方向。可選值: `\"BUY\"`, `\"SELL\"` |\n| `positionSide`| String | 是 | 持倉方向。可選值: `\"LONG\"`, `\"SHORT\"` |\n| `price` | Number | 是 | 委託下單的價格 |\n| `quantity` | Number | 是 | 下單的數量 |\n| `stopPrice` | Number | 是 | 觸發止損的價格|\n| `takePrice` | Number | 是 | 觸發止盈的價格|\n\n---\n\n#### 3. update_leverage (修改槓桿)\n- **功能描述**: 修改指定交易對的槓桿倍數。\n- **`action` 參數**: `update_leverage`\n- **⚠️ 重要提示**: 此功能**必須分兩次呼叫**，一次為 `positionSide=\"LONG\"`，另一次為 `positionSide=\"SHORT\"`，才能完整設定一個交易對的槓桿。\n- **輸入參數**:\n| 參數 | 類型 | 是否必要 | 說明 |\n| :--- | :--- | :--- | :--- |\n| `symbol` | String | 是 | 交易對，格式為 \"BTC-USDT\" |\n| `positionSide`| String | 是 | 持倉方向。可選值: `\"LONG\"`, `\"SHORT\"` |\n| `leverage` | Integer | 是 | 欲設定的槓桿倍數，例如 `20` |\n\n\n---\n\n#### 4. cancel_orders (取消掛單)\n- **功能描述**: 取消指定交易對所有尚未成交的掛單。\n- **`action` 參數**: `cancel_orders`\n- **輸入參數**:\n| 參數 | 類型 | 是否必要 | 說明 |\n| :--- | :--- | :--- | :--- |\n| `symbol` | String | 是 | 交易對，格式為 \"BTC-USDT\" |\n",
+        "workflowId": {
+          "__rl": true,
+          "value": "jG3ohhpditRkev5G",
+          "mode": "list",
+          "cachedResultName": "Bingx異動專用"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "price": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('price', ``, 'number') }}",
+            "quantity": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('quantity', ``, 'number') }}",
+            "stopPrice": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('stopPrice', ``, 'number') }}",
+            "takePrice": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('takePrice', ``, 'number') }}",
+            "leverage": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('leverage', ``, 'number') }}",
+            "positionSide": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('positionSide', ``, 'string') }}",
+            "side": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('side', ``, 'string') }}",
+            "marginType": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('marginType', ``, 'string') }}",
+            "symbol": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('symbol', ``, 'string') }}",
+            "action": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('action', ``, 'string') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "symbol",
+              "displayName": "symbol",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "marginType",
+              "displayName": "marginType",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "side",
+              "displayName": "side",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "positionSide",
+              "displayName": "positionSide",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "price",
+              "displayName": "price",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number"
+            },
+            {
+              "id": "quantity",
+              "displayName": "quantity",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number"
+            },
+            {
+              "id": "stopPrice",
+              "displayName": "stopPrice",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number"
+            },
+            {
+              "id": "takePrice",
+              "displayName": "takePrice",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number"
+            },
+            {
+              "id": "leverage",
+              "displayName": "leverage",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.2,
+      "position": [
+        -80,
+        -1720
+      ],
+      "id": "5bd56785-74b4-45bd-a70d-b7b7c102f04e",
+      "name": "BingxTool_UPDATE",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-07-11T07:56:52.000Z",
+  "versionId": "3d22c805-1763-446d-a7a3-55a873229ba5"
+}
