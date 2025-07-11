@@ -453,57 +453,6 @@
         ]
       ]
     },
-    "依ID刪除故事": {
-      "main": [
-        [
-          {
-            "node": "找出副檔備刪",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Loop Over Items": {
-      "main": [
-        [
-          {
-            "node": "刪主檔",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "刪副檔",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "找出副檔備刪": {
-      "main": [
-        [
-          {
-            "node": "Loop Over Items",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "刪副檔": {
-      "main": [
-        [
-          {
-            "node": "Loop Over Items",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Split Out1": {
       "main": [
         [
@@ -693,11 +642,6 @@
             "node": "合併檔案開始",
             "type": "main",
             "index": 0
-          },
-          {
-            "node": "下載完成檔1",
-            "type": "main",
-            "index": 0
           }
         ]
       ]
@@ -718,17 +662,6 @@
         [
           {
             "node": "Send Analysis",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "下載完成檔1": {
-      "main": [
-        [
-          {
-            "node": "Upload a video",
             "type": "main",
             "index": 0
           }
@@ -999,7 +932,7 @@
       "typeVersion": 1.1,
       "position": [
         -1900,
-        840
+        280
       ],
       "id": "76d4d799-e78d-41bd-b3a9-fd8ac2a2ea25",
       "name": "When Executed by Another Workflow"
@@ -1109,7 +1042,7 @@
       "typeVersion": 3.2,
       "position": [
         -1680,
-        819
+        259
       ],
       "id": "b8b06375-7d87-4b63-8145-1da7f91399df",
       "name": "Switch",
@@ -1275,7 +1208,7 @@
       "typeVersion": 2.1,
       "position": [
         520,
-        640
+        180
       ],
       "id": "c3925b4d-a474-473d-a111-256db63b4219",
       "name": "Airtable",
@@ -1299,7 +1232,7 @@
       "typeVersion": 4.2,
       "position": [
         -360,
-        565
+        105
       ],
       "id": "d78e96a5-423c-44ee-9dc6-127aaa0482df",
       "name": "照片轉影片"
@@ -1310,7 +1243,7 @@
       "typeVersion": 1.1,
       "position": [
         -140,
-        565
+        105
       ],
       "id": "09aa85da-9cc8-47bf-9b8d-cf728befba20",
       "name": "Wait",
@@ -1325,7 +1258,7 @@
       "typeVersion": 4.2,
       "position": [
         80,
-        465
+        5
       ],
       "id": "9fd09d44-1eac-4a6c-ba9c-13cb8386fdf4",
       "name": "Get Status"
@@ -1358,7 +1291,7 @@
       "typeVersion": 2.2,
       "position": [
         300,
-        565
+        105
       ],
       "id": "1addf279-9fe6-46bb-b53e-efef2ac32a99",
       "name": "If"
@@ -1376,7 +1309,7 @@
       "typeVersion": 4.2,
       "position": [
         -800,
-        990
+        530
       ],
       "id": "845981c1-cc02-44d5-bfbf-8073bfb0cdde",
       "name": "最後的合併"
@@ -1389,7 +1322,7 @@
       "typeVersion": 1.1,
       "position": [
         -580,
-        990
+        530
       ],
       "id": "f51c46d4-eaa3-4e2f-a806-3e376ff509eb",
       "name": "Wait1",
@@ -1423,7 +1356,7 @@
       "typeVersion": 2.2,
       "position": [
         -140,
-        990
+        530
       ],
       "id": "36b4f665-8add-465e-96f5-7dea93bdbdf7",
       "name": "If1"
@@ -1432,14 +1365,16 @@
       "parameters": {
         "chatId": "=5513588652",
         "text": "影片製做並上傳Youtube完成",
-        "additionalFields": {}
+        "additionalFields": {
+          "appendAttribution": false
+        }
       },
       "id": "52a2d66a-ba17-4343-ac81-5c1d9caf173d",
       "name": "Send Analysis",
       "type": "n8n-nodes-base.telegram",
       "position": [
         740,
-        990
+        530
       ],
       "webhookId": "0f6df531-aaad-45b5-8c90-0f04ddd48a26",
       "typeVersion": 1.2,
@@ -1459,7 +1394,7 @@
       "typeVersion": 4.2,
       "position": [
         -360,
-        890
+        430
       ],
       "id": "7ac2ad4a-8093-470f-9755-eef5cbb34e59",
       "name": "確認合併狀態"
@@ -1472,7 +1407,7 @@
       "typeVersion": 3,
       "position": [
         -1240,
-        515
+        55
       ],
       "id": "fbba7d65-dc96-4334-a39e-fdd9ecaf436f",
       "name": "Loop Over Items1"
@@ -1495,7 +1430,7 @@
       "typeVersion": 3.4,
       "position": [
         80,
-        165
+        -295
       ],
       "id": "56e8fb11-84eb-4322-bdaa-8555692bb36c",
       "name": "設定風格"
@@ -1518,7 +1453,7 @@
       "typeVersion": 3.4,
       "position": [
         300,
-        165
+        -295
       ],
       "id": "7ff9fe2b-6ee3-49b9-965d-1aa91fa155c2",
       "name": "組合URL"
@@ -1532,7 +1467,7 @@
       "typeVersion": 4.2,
       "position": [
         -800,
-        565
+        105
       ],
       "id": "7f0b9081-8b49-4cbe-b916-d76e2ff454e0",
       "name": "取得圖檔"
@@ -1582,7 +1517,7 @@
       "typeVersion": 1.2,
       "position": [
         -580,
-        340
+        -120
       ],
       "id": "89eb58f2-0c4b-4da3-bf46-61b1ef0f468e",
       "name": "合併影片",
@@ -1701,7 +1636,7 @@
       "typeVersion": 2.1,
       "position": [
         -1460,
-        515
+        55
       ],
       "id": "1a73819c-5c50-4455-8744-3286316fe4c1",
       "name": "圖檔轉影片開始",
@@ -1748,7 +1683,7 @@
       "typeVersion": 2.1,
       "position": [
         -1240,
-        990
+        530
       ],
       "id": "75946697-3222-4455-8f74-220b207a13aa",
       "name": "合併檔案開始",
@@ -1765,7 +1700,7 @@
       "typeVersion": 1,
       "position": [
         -1460,
-        115
+        -345
       ],
       "id": "61b3eef3-ec11-4eab-94a1-e29309aa4489",
       "name": "步驟 - [生圖指令]"
@@ -1793,7 +1728,7 @@
       "typeVersion": 2.1,
       "position": [
         -1020,
-        115
+        -345
       ],
       "id": "13c3435b-db6c-47bf-b814-f3f5be43c823",
       "name": "取得主檔",
@@ -1828,7 +1763,7 @@
       "typeVersion": 2.1,
       "position": [
         -800,
-        115
+        -345
       ],
       "id": "b22d8371-7dd3-4223-93af-9ef221208204",
       "name": "取得分鏡資料",
@@ -1888,7 +1823,7 @@
       "typeVersion": 4.2,
       "position": [
         -140,
-        165
+        -295
       ],
       "id": "74576a05-43ce-4e66-9887-6968f96112e8",
       "name": "產生圖檔描寫",
@@ -2059,7 +1994,7 @@
       "typeVersion": 2.1,
       "position": [
         960,
-        215
+        -220
       ],
       "id": "306cc9fc-d9c9-4fa6-b7ff-ca7ccb4fe816",
       "name": "更新image",
@@ -2078,7 +2013,7 @@
       "typeVersion": 3,
       "position": [
         -580,
-        115
+        -345
       ],
       "id": "3aaa33d2-11b6-4001-b13d-7758ab1a79e7",
       "name": "逐步取出資料"
@@ -2089,7 +2024,7 @@
       "typeVersion": 1,
       "position": [
         -1460,
-        1440
+        980
       ],
       "id": "05406f5a-ea56-449d-8ad0-fb064567b6a0",
       "name": "步驟 - [檢查圖片]"
@@ -2122,7 +2057,7 @@
       "typeVersion": 2.1,
       "position": [
         -1020,
-        1440
+        980
       ],
       "id": "2196e3c4-bc2f-45f9-9149-453f64531ea6",
       "name": "取得圖檔資料",
@@ -2143,7 +2078,7 @@
       "typeVersion": 1,
       "position": [
         -140,
-        1490
+        1005
       ],
       "id": "a952d89b-508c-476b-9435-9e6ebf37a7bc",
       "name": "Split Out"
@@ -2159,7 +2094,7 @@
       "typeVersion": 1,
       "position": [
         300,
-        1490
+        1005
       ],
       "id": "b47821f5-2aae-4a1f-a7cb-ffb29a8b671d",
       "name": "Aggregate"
@@ -2172,7 +2107,7 @@
       "typeVersion": 2,
       "position": [
         -360,
-        1490
+        1005
       ],
       "id": "971cfd0a-320c-4da2-b224-9a6555a08199",
       "name": "取出縮圖做為後續判斷"
@@ -2186,7 +2121,7 @@
       "typeVersion": 4.2,
       "position": [
         80,
-        1490
+        1005
       ],
       "id": "0b52d4d8-38ad-40f7-9fe7-08201deb620c",
       "name": "取得縮圖圖檔"
@@ -2199,7 +2134,7 @@
       "typeVersion": 2,
       "position": [
         520,
-        1490
+        1005
       ],
       "id": "1837b4bf-a476-425d-a2a7-896e64ea4353",
       "name": "批次組成ImageBase64",
@@ -2362,7 +2297,7 @@
       "typeVersion": 2.1,
       "position": [
         960,
-        1590
+        1105
       ],
       "id": "b9902aab-8aee-47d5-86c1-aa8f36173bcf",
       "name": "只保留一張",
@@ -2396,144 +2331,10 @@
       "typeVersion": 2.1,
       "position": [
         -1240,
-        1440
+        980
       ],
       "id": "5eca1b94-abe8-4b5d-a4f7-0813adb5627b",
       "name": "取得故事主檔_VerifyImage",
-      "credentials": {
-        "airtableTokenApi": {
-          "id": "ckwlAnEfq7dI2kS0",
-          "name": "Airtable Personal Access Token account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
-      "typeVersion": 1.1,
-      "position": [
-        -1900,
-        -370
-      ],
-      "id": "28f48ef0-4728-46e8-a9d8-461593ad3b10",
-      "name": "依ID刪除故事",
-      "webhookId": "6d2c09e1-9564-48ff-b61c-f81994a250ac"
-    },
-    {
-      "parameters": {
-        "options": {}
-      },
-      "type": "n8n-nodes-base.splitInBatches",
-      "typeVersion": 3,
-      "position": [
-        -1460,
-        -370
-      ],
-      "id": "73520e99-acb5-4a3a-b9c0-0abe9aeacba6",
-      "name": "Loop Over Items"
-    },
-    {
-      "parameters": {
-        "operation": "search",
-        "base": {
-          "__rl": true,
-          "value": "appLQFFC5m0OWvKwr",
-          "mode": "list",
-          "cachedResultName": "第四版",
-          "cachedResultUrl": "https://airtable.com/appLQFFC5m0OWvKwr"
-        },
-        "table": {
-          "__rl": true,
-          "value": "tblWoqvEiSRHwisf3",
-          "mode": "list",
-          "cachedResultName": "副檔",
-          "cachedResultUrl": "https://airtable.com/appLQFFC5m0OWvKwr/tblWoqvEiSRHwisf3"
-        },
-        "filterByFormula": "=({ParentRecordID} = \"{{ $json.chatInput }}\")",
-        "options": {
-          "fields": [
-            "PK"
-          ]
-        }
-      },
-      "type": "n8n-nodes-base.airtable",
-      "typeVersion": 2.1,
-      "position": [
-        -1680,
-        -370
-      ],
-      "id": "a5851c0a-0aa0-4161-950e-f5fde0f69cd6",
-      "name": "找出副檔備刪",
-      "credentials": {
-        "airtableTokenApi": {
-          "id": "ckwlAnEfq7dI2kS0",
-          "name": "Airtable Personal Access Token account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "deleteRecord",
-        "base": {
-          "__rl": true,
-          "value": "appLQFFC5m0OWvKwr",
-          "mode": "list",
-          "cachedResultName": "第四版",
-          "cachedResultUrl": "https://airtable.com/appLQFFC5m0OWvKwr"
-        },
-        "table": {
-          "__rl": true,
-          "value": "tblWoqvEiSRHwisf3",
-          "mode": "list",
-          "cachedResultName": "副檔",
-          "cachedResultUrl": "https://airtable.com/appLQFFC5m0OWvKwr/tblWoqvEiSRHwisf3"
-        },
-        "id": "={{ $json.id }}"
-      },
-      "type": "n8n-nodes-base.airtable",
-      "typeVersion": 2.1,
-      "position": [
-        -1240,
-        -320
-      ],
-      "id": "90148601-ea56-4f65-a745-cbea3b8eae69",
-      "name": "刪副檔",
-      "credentials": {
-        "airtableTokenApi": {
-          "id": "ckwlAnEfq7dI2kS0",
-          "name": "Airtable Personal Access Token account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "deleteRecord",
-        "base": {
-          "__rl": true,
-          "value": "appLQFFC5m0OWvKwr",
-          "mode": "list",
-          "cachedResultName": "第四版",
-          "cachedResultUrl": "https://airtable.com/appLQFFC5m0OWvKwr"
-        },
-        "table": {
-          "__rl": true,
-          "value": "tblmxMe7DDQGJk8AF",
-          "mode": "list",
-          "cachedResultName": "主檔",
-          "cachedResultUrl": "https://airtable.com/appLQFFC5m0OWvKwr/tblmxMe7DDQGJk8AF"
-        },
-        "id": "={{ $('依ID刪除故事').item.json.chatInput }}"
-      },
-      "type": "n8n-nodes-base.airtable",
-      "typeVersion": 2.1,
-      "position": [
-        -1240,
-        -520
-      ],
-      "id": "edcc7fc4-ba0e-4fd9-baad-f9acc32a588d",
-      "name": "刪主檔",
       "credentials": {
         "airtableTokenApi": {
           "id": "ckwlAnEfq7dI2kS0",
@@ -2550,7 +2351,7 @@
       "typeVersion": 1,
       "position": [
         520,
-        165
+        -295
       ],
       "id": "69aac7a5-aeef-49aa-9ac9-153e0ff7405c",
       "name": "Split Out1"
@@ -2566,7 +2367,7 @@
       "typeVersion": 4.2,
       "position": [
         740,
-        165
+        -295
       ],
       "id": "eb05baa5-db68-4f4c-ad92-12af386ba50e",
       "name": "建立圖檔",
@@ -2625,7 +2426,7 @@
       "typeVersion": 1.2,
       "position": [
         -140,
-        1290
+        805
       ],
       "id": "d79f7d85-95b4-40bb-9b68-c30997a59707",
       "name": "轉影片1",
@@ -2723,7 +2524,7 @@
       "typeVersion": 2.2,
       "position": [
         -360,
-        90
+        -345
       ],
       "id": "c91068a7-af8b-466e-bdc1-82a4437d74cf",
       "name": "如果無資料待生圖"
@@ -2757,7 +2558,7 @@
       "typeVersion": 2.2,
       "position": [
         -580,
-        1465
+        980
       ],
       "id": "59b19922-18fc-43ad-b928-73b1d96fcaa1",
       "name": "如果無資料待生圖1"
@@ -2791,7 +2592,7 @@
       "typeVersion": 2.2,
       "position": [
         -1020,
-        515
+        55
       ],
       "id": "0f85bfb7-0d12-4c10-89fd-7333ba02aea9",
       "name": "如果無資料要轉影片"
@@ -2903,7 +2704,7 @@
       "typeVersion": 1.2,
       "position": [
         80,
-        -60
+        -520
       ],
       "id": "a25aae25-4d96-4ada-a2ec-2911fdd82769",
       "name": "選圖檔",
@@ -2927,7 +2728,7 @@
       "typeVersion": 3.4,
       "position": [
         -1240,
-        115
+        -345
       ],
       "id": "7baa8046-4d0e-4095-a03a-784a7c999b51",
       "name": "設定Prompt"
@@ -2947,7 +2748,7 @@
       "typeVersion": 4.2,
       "position": [
         740,
-        1490
+        1005
       ],
       "id": "36d0d3a1-c4c5-4896-9587-63b5c80bbbaf",
       "name": "挑一張適合的圖檔11",
@@ -2974,7 +2775,7 @@
       "type": "n8n-nodes-base.telegram",
       "position": [
         -140,
-        -60
+        -520
       ],
       "webhookId": "2f3cb63a-8529-45fe-bc57-faf1bf5d127f",
       "typeVersion": 1.2,
@@ -2999,7 +2800,7 @@
       "type": "n8n-nodes-base.telegram",
       "position": [
         -360,
-        1290
+        805
       ],
       "webhookId": "ba8123f6-58d3-45dc-987a-29c16425726b",
       "typeVersion": 1.2,
@@ -3024,7 +2825,7 @@
       "type": "n8n-nodes-base.telegram",
       "position": [
         -800,
-        340
+        -120
       ],
       "webhookId": "148d7146-4ce2-4309-ad45-c0024f8e345f",
       "typeVersion": 1.2,
@@ -3045,7 +2846,7 @@
       "typeVersion": 4.2,
       "position": [
         300,
-        990
+        530
       ],
       "id": "3ed69485-9aa2-488a-aeb0-f9d2d1d0418e",
       "name": "下載完成檔"
@@ -3058,7 +2859,7 @@
       "typeVersion": 3,
       "position": [
         -800,
-        1440
+        980
       ],
       "id": "91a2c454-6f03-4f5f-8916-e15861c4aedb",
       "name": "依序處理場景"
@@ -3081,7 +2882,7 @@
       "typeVersion": 3.4,
       "position": [
         -1460,
-        1090
+        530
       ],
       "id": "12f6b6c6-2442-4f56-98eb-d55684558e0f",
       "name": "Edit Fields"
@@ -3177,7 +2978,7 @@
       "typeVersion": 2.1,
       "position": [
         80,
-        990
+        530
       ],
       "id": "53e7f17d-4cc5-4e11-85b7-add298d5c183",
       "name": "記錄合併後檔案",
@@ -3206,7 +3007,7 @@
       "typeVersion": 1,
       "position": [
         520,
-        990
+        530
       ],
       "id": "161523ed-9111-44ee-a274-7ad45977130c",
       "name": "YouTube",
@@ -3220,28 +3021,13 @@
     },
     {
       "parameters": {
-        "url": "http://host.docker.internal:8080/tasks/7331e8fa-ef9f-4ef4-a61d-a72be3a26835/merged_7331e8fa-ef9f-4ef4-a61d-a72be3a26835.mp4",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        -1240,
-        1215
-      ],
-      "id": "df9aab28-fa57-407a-8506-5907eacf6713",
-      "name": "下載完成檔1",
-      "disabled": true
-    },
-    {
-      "parameters": {
         "jsCode": "const inputItems = $input.all(); // 獲取所有傳入的資料項目\nconst names = [];\n\n// 迭代每一個輸入項目，取出 'name' 屬性\nfor (const item of inputItems) {\n  if (item.json && item.json.VideoPath) {\n    names.push(item.json.VideoPath);\n  }\n}\n\n// 將收集到的 'name' 陣列封裝成 { \"name\": [...] } 的物件\nreturn [{\n  json: {\n    video_sources: names\n  }\n}];"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
         -1020,
-        990
+        530
       ],
       "id": "78a12599-d225-4120-8bd2-7136fffa4c43",
       "name": "取得所有單一影音檔"
@@ -3254,40 +3040,10 @@
       "typeVersion": 2,
       "position": [
         -580,
-        565
+        105
       ],
       "id": "b16f138b-c650-44bb-9c94-92f1dd38d435",
       "name": "取得圖檔內容"
-    },
-    {
-      "parameters": {
-        "resource": "video",
-        "operation": "upload",
-        "title": "故事",
-        "regionCode": "TW",
-        "categoryId": "27",
-        "options": {
-          "description": "故事內容",
-          "embeddable": true,
-          "privacyStatus": "public",
-          "selfDeclaredMadeForKids": true
-        }
-      },
-      "type": "n8n-nodes-base.youTube",
-      "typeVersion": 1,
-      "position": [
-        -1020,
-        1215
-      ],
-      "id": "c71b08f7-6f63-4b8d-a018-4bab33d6ca72",
-      "name": "Upload a video",
-      "credentials": {
-        "youTubeOAuth2Api": {
-          "id": "A7cw7kFBd4vcYSC8",
-          "name": "YouTube account"
-        }
-      },
-      "onError": "continueErrorOutput"
     },
     {
       "parameters": {
@@ -3884,7 +3640,7 @@
       {
         "json": {
           "Action": "SenceToVideo",
-          "RecordID": "recWXjn0BqDmei417"
+          "RecordID": "recglyKzmRRZcnm8a"
         }
       }
     ]
@@ -3895,6 +3651,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 2,
-  "updatedAt": "2025-06-30T11:21:00.000Z",
-  "versionId": "9bb6531d-f17f-4f24-87c6-64596437c6b4"
+  "updatedAt": "2025-07-02T02:40:55.000Z",
+  "versionId": "1f71a5d4-8a09-43fb-864e-d11f0fcc089e"
 }
