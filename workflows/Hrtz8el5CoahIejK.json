@@ -1,0 +1,2331 @@
+{
+  "active": false,
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "設定變數",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "取得可用餘額",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "查詢逐全倉模式",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "設定全逐倉",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "目前持倉",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "新增止盈止損交易",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "取得摃桿資料",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "更新槓桿",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "取得掛單",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "取消掛單",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "設定變數": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "取得getBalance query string": {
+      "main": [
+        [
+          {
+            "node": "簽balance",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "取得可用餘額": {
+      "main": [
+        [
+          {
+            "node": "取得getBalance query string",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "簽balance": {
+      "main": [
+        [
+          {
+            "node": "Get Balance",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "查詢逐全倉模式": {
+      "main": [
+        [
+          {
+            "node": "取得marginType query string",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "取得marginType query string": {
+      "main": [
+        [
+          {
+            "node": "簽balance1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Balance": {
+      "main": [
+        [
+          {
+            "node": "Balance Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "簽balance1": {
+      "main": [
+        [
+          {
+            "node": "Get Balance1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Balance1": {
+      "main": [
+        [
+          {
+            "node": "MarginType",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "設定全逐倉": {
+      "main": [
+        [
+          {
+            "node": "取得更新marginType query string",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "取得更新marginType query string": {
+      "main": [
+        [
+          {
+            "node": "簽update marginType",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "簽update marginType": {
+      "main": [
+        [
+          {
+            "node": "Update Margin Type",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "BingxTool": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ],
+      "main": [
+        []
+      ]
+    },
+    "取得更新marginType query string1": {
+      "main": [
+        [
+          {
+            "node": "簽get all on hand order",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "目前持倉": {
+      "main": [
+        [
+          {
+            "node": "取得更新marginType query string1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "簽get all on hand order": {
+      "main": [
+        [
+          {
+            "node": "取得目前所有的持倉",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculator": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "取得new trad的query string": {
+      "main": [
+        [
+          {
+            "node": "簽new trad",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "簽new trad": {
+      "main": [
+        [
+          {
+            "node": "新增合約交易",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "取得new trad的query string1": {
+      "main": [
+        [
+          {
+            "node": "簽new trad1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "簽new trad1": {
+      "main": [
+        [
+          {
+            "node": "新增合約交易1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "限價": {
+      "main": [
+        [
+          {
+            "node": "取得new trad的query string1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "新增止盈止損交易": {
+      "main": [
+        [
+          {
+            "node": "取得new trad的query string",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TechnicalAnalysis": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "取得摃桿資料": {
+      "main": [
+        [
+          {
+            "node": "取得leverage query string",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "取得leverage query string": {
+      "main": [
+        [
+          {
+            "node": "簽Get leverage",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "簽Get leverage": {
+      "main": [
+        [
+          {
+            "node": "Get Leverage",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Leverage": {
+      "main": [
+        []
+      ]
+    },
+    "更新槓桿": {
+      "main": [
+        [
+          {
+            "node": "取得query string",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "取得query string": {
+      "main": [
+        [
+          {
+            "node": "簽",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "簽": {
+      "main": [
+        [
+          {
+            "node": "BingxAPI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "取得leverage query string1": {
+      "main": [
+        [
+          {
+            "node": "簽1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "取得掛單": {
+      "main": [
+        [
+          {
+            "node": "取得leverage query string1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "簽1": {
+      "main": [
+        [
+          {
+            "node": "BingxAPI 1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "取消掛單": {
+      "main": [
+        [
+          {
+            "node": "取得 para 1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "取得 para 1": {
+      "main": [
+        [
+          {
+            "node": "簽 1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "簽 1": {
+      "main": [
+        [
+          {
+            "node": "BingxAPI 2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-07-03T08:26:01.896Z",
+  "id": "Hrtz8el5CoahIejK",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "主流程-別用這個",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "action"
+            },
+            {
+              "name": "symbol"
+            },
+            {
+              "name": "marginType"
+            },
+            {
+              "name": "side"
+            },
+            {
+              "name": "positionSide"
+            },
+            {
+              "name": "price",
+              "type": "number"
+            },
+            {
+              "name": "quantity",
+              "type": "number"
+            },
+            {
+              "name": "stopPrice",
+              "type": "number"
+            },
+            {
+              "name": "takePrice",
+              "type": "number"
+            },
+            {
+              "name": "leverage",
+              "type": "number"
+            },
+            {
+              "name": "orderId"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -440,
+        1200
+      ],
+      "id": "fde36a3e-e917-4711-960b-5966db5d6f33",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": false,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('When Executed by Another Workflow').item.json.action }}",
+                    "rightValue": "=getBalance",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "658d03ff-cd7d-44d4-aa46-83bfe0d306d5"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": false,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "a5063f89-cdba-40d2-86ba-4f0c2859da3e",
+                    "leftValue": "={{ $('When Executed by Another Workflow').item.json.action }}",
+                    "rightValue": "getMarginType",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": false,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "1e27de00-8e26-450f-9b15-086a67849724",
+                    "leftValue": "={{ $('When Executed by Another Workflow').item.json.action }}",
+                    "rightValue": "UpdateMarginType",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": false,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "66c67b45-cbdc-4f9a-b862-c852aef40823",
+                    "leftValue": "={{ $('When Executed by Another Workflow').item.json.action }}",
+                    "rightValue": "getOnhand",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": false,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "3587e65f-0e35-4acf-a090-e53933efc9f2",
+                    "leftValue": "={{ $('When Executed by Another Workflow').item.json.action }}",
+                    "rightValue": "newtrad",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": false,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "49029f28-e8d9-413c-9eb3-4589a32cd826",
+                    "leftValue": "={{ $('When Executed by Another Workflow').item.json.action }}",
+                    "rightValue": "getleverage",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": false,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "a8decc07-aeff-4d4a-965b-ca996a514584",
+                    "leftValue": "={{ $('When Executed by Another Workflow').item.json.action }}",
+                    "rightValue": "updateleverage",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": false,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "e47b2765-81e6-4245-b9f3-68050ee0a6fe",
+                    "leftValue": "={{ $('When Executed by Another Workflow').item.json.action }}",
+                    "rightValue": "openOrders",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": false,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "b6ebd3dc-4aad-4b7f-96c7-d171f39f029b",
+                    "leftValue": "={{ $('When Executed by Another Workflow').item.json.action }}",
+                    "rightValue": "cancelOrder",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {
+          "ignoreCase": true
+        }
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        0,
+        1080
+      ],
+      "id": "02b0cda9-e014-405f-895d-06ee7b7e0bf2",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f661117e-e789-475d-a243-4a26e52b63fe",
+              "name": "apikey",
+              "value": "TpFRJLqQoR1yB9zQkBLRLbDxPAviTNNWCYGA1cYUMfI6ZKSREJvlV5hY2UwcyNoCOGfIyZmIjn06rU94wvg",
+              "type": "string"
+            },
+            {
+              "id": "ad88ade5-ab89-40ff-9b20-fa3c2a2e1eb0",
+              "name": "secretkey",
+              "value": "iLbLQqrjDKdIXR74dvLH6F8aA1s5ONWJ38G8VEMcl2A5abqF8hJDqyM5ySroqmLHLgeu8Nah901t6rnA",
+              "type": "string"
+            },
+            {
+              "id": "dcd77125-b8db-44f2-8801-c380cdc1bb43",
+              "name": "timestamp",
+              "value": "={{ Date.now() }}",
+              "type": "number"
+            },
+            {
+              "id": "9b7e610b-65b7-4cc3-83ba-2969ff73b6bb",
+              "name": "recvWindow",
+              "value": "100000",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -220,
+        1200
+      ],
+      "id": "ab5f9d8d-7c84-4fc0-b7f9-7222c7878bec",
+      "name": "設定變數"
+    },
+    {
+      "parameters": {
+        "jsCode": "var keyworkflow = []\nvar kwysetting = [\"timestamp\"]\n\nvar para = []\nkwysetting.map(item=>{\n  para.push(item + \"=\" + encodeURIComponent($input.all()[0].json[item]))\n})\n\nkeyworkflow.map(item=>{\n  para.push(item + \"=\" + encodeURIComponent($('When Executed by Another Workflow').first().json[item]))\n})\n\n\ndata = para.join(\"&\")// + \"&recvWindow=10000\"\n\nreturn {\n  \"data\":data\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        440,
+        400
+      ],
+      "id": "fd2dd985-3279-44e5-b22b-3d5c149bc8ef",
+      "name": "取得getBalance query string"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        220,
+        400
+      ],
+      "id": "c00c4da3-0b1f-4cc0-8732-6795975bcc43",
+      "name": "取得可用餘額"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "PtM1hcbyctDi76QQ",
+          "mode": "list",
+          "cachedResultName": "hmacsha256"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "secretkey": "={{ $('設定變數').item.json.secretkey }}",
+            "message": "={{ $json.data }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "message",
+              "displayName": "message",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "secretkey",
+              "displayName": "secretkey",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        660,
+        400
+      ],
+      "id": "61285b9d-e3bd-4955-9764-c33598be5e27",
+      "name": "簽balance"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        220,
+        600
+      ],
+      "id": "b094f9a4-754e-4dc1-b431-de568c779034",
+      "name": "查詢逐全倉模式"
+    },
+    {
+      "parameters": {
+        "jsCode": "var keyworkflow = [\"symbol\"]\nvar kwysetting = [\"timestamp\"]\n\nvar para = []\nkwysetting.map(item=>{\n  para.push(item + \"=\" + encodeURIComponent($input.all()[0].json[item]))\n})\n\nkeyworkflow.map(item=>{\n  para.push(item + \"=\" + encodeURIComponent($('When Executed by Another Workflow').first().json[item]))\n})\n\n\ndata = para.join(\"&\")\n\nreturn {\n  \"data\":data\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        440,
+        600
+      ],
+      "id": "67ef69ae-1447-4c3b-be4d-414561e8baf0",
+      "name": "取得marginType query string"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "PtM1hcbyctDi76QQ",
+          "mode": "list",
+          "cachedResultName": "hmacsha256"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "secretkey": "={{ $('設定變數').item.json.secretkey }}",
+            "message": "={{ $json.data }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "message",
+              "displayName": "message",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "secretkey",
+              "displayName": "secretkey",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        660,
+        600
+      ],
+      "id": "534c7553-bf55-40d8-aad2-eb552d0336fc",
+      "name": "簽balance1"
+    },
+    {
+      "parameters": {
+        "url": "=https://open-api.bingx.com/openApi/swap/v2/user/balance",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "timestamp",
+              "value": "={{ $('設定變數').item.json.timestamp }}"
+            },
+            {
+              "name": "signature",
+              "value": "={{ $json.data }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-BX-APIKEY",
+              "value": "={{ $('設定變數').item.json.apikey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/x-www-form-urlencoded"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        880,
+        400
+      ],
+      "id": "64721ccd-4649-4f2d-8cc6-729464da250c",
+      "name": "Get Balance"
+    },
+    {
+      "parameters": {
+        "url": "=https://open-api-vst.bingx.com/openApi/swap/v2/trade/marginType",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "timestamp",
+              "value": "={{ $('設定變數').item.json.timestamp }}"
+            },
+            {
+              "name": "signature",
+              "value": "={{ $json.data }}"
+            },
+            {
+              "name": "symbol",
+              "value": "={{ $('When Executed by Another Workflow').item.json.symbol }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-BX-APIKEY",
+              "value": "={{ $('設定變數').item.json.apikey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/x-www-form-urlencoded"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        880,
+        600
+      ],
+      "id": "68cce942-1ca6-4123-9b57-5b23d020de1f",
+      "name": "Get Balance1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "38fc47c8-9868-4855-8f79-6d5d4dae68df",
+              "name": "marginType",
+              "value": "={{ $json.data.marginType }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1100,
+        600
+      ],
+      "id": "c89629d9-5c56-4b65-a2e9-aa84db53e8ec",
+      "name": "MarginType"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        220,
+        800
+      ],
+      "id": "32fa908f-bd15-4888-87b0-b18ef664bff7",
+      "name": "設定全逐倉"
+    },
+    {
+      "parameters": {
+        "jsCode": "var keyworkflow = [\"symbol\", \"marginType\"]\nvar kwysetting = [\"timestamp\"]\n\nvar para = []\nkwysetting.map(item=>{\n  para.push(item + \"=\" + encodeURIComponent($input.all()[0].json[item]))\n})\n\nkeyworkflow.map(item=>{\n  para.push(item + \"=\" + encodeURIComponent($('When Executed by Another Workflow').first().json[item]))\n})\n\n\ndata = para.join(\"&\")\n\nreturn {\n  \"data\":data\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        440,
+        800
+      ],
+      "id": "e489f393-7ac4-4208-8252-05b4bd552bc3",
+      "name": "取得更新marginType query string"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "PtM1hcbyctDi76QQ",
+          "mode": "list",
+          "cachedResultName": "hmacsha256"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "secretkey": "={{ $('設定變數').item.json.secretkey }}",
+            "message": "={{ $json.data }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "message",
+              "displayName": "message",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "secretkey",
+              "displayName": "secretkey",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        660,
+        800
+      ],
+      "id": "5f33baae-cbd9-4863-9838-25cc2accc7e5",
+      "name": "簽update marginType"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -440,
+        40
+      ],
+      "id": "87998224-b598-4da4-836b-12b62e3e0507",
+      "name": "When chat message received",
+      "webhookId": "b40c8e36-4bdd-4311-8cd1-a8a098bd7da8"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -220,
+        160
+      ],
+      "id": "5e71125c-edfa-41ef-ae8d-f4974f6535a2",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "5ibry7EtqlW5Ub8k",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "contextWindowLength": 20
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        -100,
+        160
+      ],
+      "id": "a0e12e71-fac4-4865-9fee-b45151655f9e",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "description": "使用本工具來操作帳戶資金、持倉資料。\n\naction為主要的功能參數如下：\ngetBalance -> 查詢可用餘額\ngetMarginType -> 查詢持倉模式\nupdateMarginType -> 更新持倉模式\ngetOnhand -> 查詢目前持倉資料\nnewtrad -> 新增止盈止損交易\ngetleverage -> 查詢目前槓桿資料\nupdateleverage -> 修改槓桿資料\nopenOrders -> 取得目前掛單資料\ncancelOrder -> 取消目前掛單\n\n各功能的必要參如下：\ngetBalance -> 不需外加任何參數\ngetMarginType -> Symbol\nupdateMarginType -> Symbol, marginType\ngetOnhand -> 不需外加任何參數\nnewtrad-> symbol, side(SELL或BUY), positionSide(LONG或SHORT), price(委託價格), quantity(數量), stopPrice(止損價格), takePrice(止盈價格)\ngetleverage -> symbol\nupdateleverage -> symbol, positionSide，修改時，必需呼叫兩次分別為(LONG及SHORT)\nopenOrders -> symbol\ncancelOrder -> symbol\n",
+        "workflowId": {
+          "__rl": true,
+          "value": "Hrtz8el5CoahIejK",
+          "mode": "list",
+          "cachedResultName": "主流程"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('action', `getBalance -> 查詢可用餘額\ngetMarginType -> 查詢持倉模式\nupdateMarginType -> 更新持倉模式\ngetOnhand -> 查詢目前持倉資料\nnewtrad -> 新增止盈止損交易\ngetleverage -> 查詢目前槓桿資料\nupdateleverage -> 修改槓桿資料`, 'string') }}",
+            "symbol": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('symbol', `幣種，以\"-\"分隔，比如BTC-USDT`, 'string') }}",
+            "marginType": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('marginType', `marginType(保證金模式)\nISOLATED(逐倉), CROSSED(全倉)和SEPARATE_ISOLATED(逐倉分倉)\n`, 'string') }}",
+            "takePrice": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('takePrice', `止盈價格`, 'number') }}",
+            "stopPrice": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('stopPrice', `止損價格`, 'number') }}",
+            "quantity": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('quantity', `委託數量`, 'number') }}",
+            "price": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('price', `委託價格`, 'number') }}",
+            "side": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('side', `交易種類(SELL或BUY)`, 'string') }}",
+            "positionSide": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('positionSide', `交易方向(LONG或SHORT)`, 'string') }}",
+            "leverage": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('leverage', `槓桿倍數`, 'number') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "symbol",
+              "displayName": "symbol",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "marginType",
+              "displayName": "marginType",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "side",
+              "displayName": "side",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "positionSide",
+              "displayName": "positionSide",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "price",
+              "displayName": "price",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            },
+            {
+              "id": "quantity",
+              "displayName": "quantity",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            },
+            {
+              "id": "stopPrice",
+              "displayName": "stopPrice",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            },
+            {
+              "id": "takePrice",
+              "displayName": "takePrice",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            },
+            {
+              "id": "leverage",
+              "displayName": "leverage",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.2,
+      "position": [
+        20,
+        160
+      ],
+      "id": "b5cf8212-369d-4caf-ab0f-848c4caed494",
+      "name": "BingxTool",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "你是一位具有資深的財經經驗的操盤手，會依據提供的技術分析內容嚴格遵循「進場需保守，離場需積極」的原則, 操作金融市場的進、出場操作。\n若當前無持倉，要依目前掛單來決定是否需要取消原有掛單，再重新掛新單。\n若當前有持倉，需要判斷價格走勢是否己有變化，提供是否需要立即獲利或是止損出場。\n\n可用工具有**BingxTool** , **Calculator**, **TechnicalAnalysis**\n\n工具 **BingxTool** 可操作並回傳帳戶資金、持倉資料。\n工具 **TechnicalAnalysis** 可取得金融分析資料。\n有計算需求時，請使用工具**Calculator**\n\n你的工作如下：\n1. 使用工具**BingxTool**取得目前持倉資料。\n2. 使用工具**TechnicalAnalysis**取得分析資料。\n3. 依據分析資料決定是否使用工具**BingxTool**來進行金融相關操作。\n4. 進場時可用來下單的金額上限為100USDT，請以20倍槓桿計算下單數量。"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        -60,
+        -60
+      ],
+      "id": "08f6fd61-9422-4e76-95fe-b4db330772b8",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ca2537d6-d2b8-492b-bfd7-e4aba54c66fe",
+              "name": "balance",
+              "value": "={{ $json.data.balance.equity }} USDT",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1100,
+        400
+      ],
+      "id": "78d1fff9-8b69-4a12-b1c7-c787290e8676",
+      "name": "Balance Response",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://open-api-vst.bingx.com/openApi/swap/v2/trade/marginType",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "timestamp",
+              "value": "={{ $('設定變數').item.json.timestamp }}"
+            },
+            {
+              "name": "signature",
+              "value": "={{ $json.data }}"
+            },
+            {
+              "name": "symbol",
+              "value": "={{ $('When Executed by Another Workflow').item.json.symbol }}"
+            },
+            {
+              "name": "marginType",
+              "value": "={{ $('When Executed by Another Workflow').item.json.marginType }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-BX-APIKEY",
+              "value": "={{ $('設定變數').item.json.apikey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/x-www-form-urlencoded"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        880,
+        800
+      ],
+      "id": "e5740df2-bd94-4c83-9f82-f160b6bf4584",
+      "name": "Update Margin Type"
+    },
+    {
+      "parameters": {
+        "jsCode": "var keyworkflow = []\nvar kwysetting = [\"timestamp\"]\n\nvar para = []\nkwysetting.map(item=>{\n  para.push(item + \"=\" + encodeURIComponent($input.all()[0].json[item]))\n})\n\nkeyworkflow.map(item=>{\n  para.push(item + \"=\" + encodeURIComponent($('When Executed by Another Workflow').first().json[item]))\n})\n\n\ndata = para.join(\"&\")// + \"&recvWindow=10000\"\n\nreturn {\n  \"data\":data\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        440,
+        1000
+      ],
+      "id": "862d3f9e-0e44-4279-8e5a-2ebe4ba4a5d6",
+      "name": "取得更新marginType query string1"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        220,
+        1000
+      ],
+      "id": "91abe90f-4e72-43a5-96f2-a35754ff133e",
+      "name": "目前持倉"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "PtM1hcbyctDi76QQ",
+          "mode": "list",
+          "cachedResultName": "hmacsha256"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "secretkey": "={{ $('設定變數').item.json.secretkey }}",
+            "message": "={{ $json.data }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "message",
+              "displayName": "message",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "secretkey",
+              "displayName": "secretkey",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        660,
+        1000
+      ],
+      "id": "47b6d0cb-8b26-463e-8455-75d336f6f279",
+      "name": "簽get all on hand order"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "typeVersion": 1,
+      "position": [
+        140,
+        160
+      ],
+      "id": "0a7aff02-29c9-4f07-9cd3-3353a95d3273",
+      "name": "Calculator"
+    },
+    {
+      "parameters": {
+        "url": "=https://open-api-vst.bingx.com/openApi/swap/v2/user/positions",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "timestamp",
+              "value": "={{ $('設定變數').item.json.timestamp }}"
+            },
+            {
+              "name": "signature",
+              "value": "={{ $json.data }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-BX-APIKEY",
+              "value": "={{ $('設定變數').item.json.apikey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/x-www-form-urlencoded"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        880,
+        1000
+      ],
+      "id": "6adb2653-bd1a-4ec6-b606-584003a994e1",
+      "name": "取得目前所有的持倉"
+    },
+    {
+      "parameters": {
+        "jsCode": "var rawData = {};\nvar sortedrawdata= {}\n\nvar keyworkflow = [\"symbol\", \"side\", \"positionSide\", \"quantity\", \"price\"];\nvar kwysetting = [\"timestamp\"];\nvar stopPrice = {\n  \"price\": $('When Executed by Another Workflow').first().json.stopPrice,\n  \"stopPrice\": $('When Executed by Another Workflow').first().json.stopPrice,\n  \"type\" : \"STOP_MARKET\",\n  \"workingType\": \"MARK_PRICE\"\n}\n\nvar takePrice = {\n  \"price\": $('When Executed by Another Workflow').first().json.takePrice,\n  \"stopPrice\": $('When Executed by Another Workflow').first().json.takePrice,\n  \"type\" : \"TAKE_PROFIT_MARKET\",\n  \"workingType\": \"MARK_PRICE\"\n}\n\nstr_StopPrice = JSON.stringify(stopPrice)\nstr_TakePrice = JSON.stringify(takePrice)\n\n\nrawData[\"type\"] = \"LIMIT\"//LIMIT, MARKET\nrawData[\"stopLoss\"] = str_StopPrice\nrawData[\"takeProfit\"] = str_TakePrice\n// Collect data for keyworkflow and kwysetting\nkeyworkflow.forEach(item => {\n  rawData[item] = $('When Executed by Another Workflow').first().json[item];\n});\n\nkwysetting.forEach(item => {\n  rawData[item] = $input.all()[0].json[item];\n});\n\nconst sortedKeys = Object.keys(rawData).sort();\nconst encodedDataParts = sortedKeys.map(key => `${key}=${encodeURIComponent(rawData[key])}`);\nsortedKeys.map(key => \n  sortedrawdata[key] = rawData[key]\n);\n\n//delete sortedrawdata.timestamp\n// Build the 'data' string as a JSON string of the rawData object\nconst dataString = JSON.stringify(sortedrawdata);\n\n// Build the 'encodedata' string with sorted keys (with encoding)\nconst encodedDataString = encodedDataParts.join(\"&\");\n\nreturn {\n  \"data\": dataString,\n  \"encodedata\": encodedDataString\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        440,
+        1200
+      ],
+      "id": "7080a752-f073-4bbc-9bf7-90c80ac55282",
+      "name": "取得new trad的query string"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "PtM1hcbyctDi76QQ",
+          "mode": "list",
+          "cachedResultName": "hmacsha256"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "secretkey": "={{ $('設定變數').item.json.secretkey }}",
+            "message": "={{ $json.encodedata }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "message",
+              "displayName": "message",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "secretkey",
+              "displayName": "secretkey",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        660,
+        1200
+      ],
+      "id": "377651f3-9c0e-4bbe-9067-7534831aaab4",
+      "name": "簽new trad"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://open-api-vst.bingx.com/openApi/swap/v2/trade/order",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "signature",
+              "value": "={{ $json.data }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-BX-APIKEY",
+              "value": "={{ $('設定變數').item.json.apikey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/x-www-form-urlencoded"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $('取得new trad的query string').item.json.data }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        880,
+        1200
+      ],
+      "id": "528a0c8c-bfab-4dc9-bd15-89da1ed6fdf7",
+      "name": "新增合約交易"
+    },
+    {
+      "parameters": {
+        "jsCode": "var keyworkflow = [\"symbol\", \"side\", \"positionSide\", \"quantity\", \"price\"];\nvar kwysetting = [\"timestamp\"];\n\nvar rawData = {};\nvar sortedrawdata= {}\n\nrawData[\"type\"] = \"LIMIT\"//LIMIT, MARKET\n\n// Collect data for keyworkflow and kwysetting\nkeyworkflow.forEach(item => {\n  rawData[item] = $('When Executed by Another Workflow').first().json[item];\n});\n\nkwysetting.forEach(item => {\n  rawData[item] = $input.all()[0].json[item];\n});\n\nconst sortedKeys = Object.keys(rawData).sort();\nconst encodedDataParts = sortedKeys.map(key => `${key}=${encodeURIComponent(rawData[key])}`);\nsortedKeys.map(key => \n  sortedrawdata[key] = rawData[key]\n);\n\n//delete sortedrawdata.timestamp\n// Build the 'data' string as a JSON string of the rawData object\nconst dataString = JSON.stringify(sortedrawdata);\n\n// Build the 'encodedata' string with sorted keys (with encoding)\nconst encodedDataString = encodedDataParts.join(\"&\");\n\nreturn {\n  \"data\": dataString,\n  \"encodedata\": encodedDataString\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -220,
+        2260
+      ],
+      "id": "d39e4aca-9d8b-4951-a87d-39abf78d3952",
+      "name": "取得new trad的query string1"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "PtM1hcbyctDi76QQ",
+          "mode": "list",
+          "cachedResultName": "hmacsha256"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "secretkey": "={{ $('設定變數').item.json.secretkey }}",
+            "message": "={{ $json.encodedata }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "message",
+              "displayName": "message",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "secretkey",
+              "displayName": "secretkey",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        2260
+      ],
+      "id": "28072013-29e6-4caf-88f8-16a490f58bdb",
+      "name": "簽new trad1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://open-api-vst.bingx.com/openApi/swap/v2/trade/order",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "signature",
+              "value": "={{ $json.data }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-BX-APIKEY",
+              "value": "={{ $('設定變數').item.json.apikey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/x-www-form-urlencoded"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $('取得new trad的query string1').item.json.data }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        220,
+        2260
+      ],
+      "id": "29b76031-7d86-4ede-9473-73dead8730ac",
+      "name": "新增合約交易1"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -440,
+        2260
+      ],
+      "id": "aee8bc81-1505-48a3-bab3-5a4aa4cf49af",
+      "name": "限價"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        220,
+        1200
+      ],
+      "id": "962d6456-6450-4d59-a39a-d5df15044e1c",
+      "name": "新增止盈止損交易"
+    },
+    {
+      "parameters": {
+        "description": "Call this tool using a symbol to get a technical analysis. For stocks, this can be a number. For cryptocurrencies, the format must be a valid TradingView format EXCHANGE:SYMBOL, e.g. BINANCE:BTCUSDT.",
+        "workflowId": {
+          "__rl": true,
+          "value": "QD2fsvvai94zkAZr",
+          "mode": "list",
+          "cachedResultName": "分析"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "ticker": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('ticker', `For stocks, this can be a number or a string. For cryptocurrencies, the format must be a valid TradingView format EXCHANGE:SYMBOL, e.g. BINANCE:BTCUSDT.`, 'string') }}"
+          },
+          "matchingColumns": [
+            "ticker"
+          ],
+          "schema": [
+            {
+              "id": "ticker",
+              "displayName": "ticker",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.2,
+      "position": [
+        260,
+        160
+      ],
+      "id": "21c50045-3875-4aec-bbff-2c9d87ff1520",
+      "name": "TechnicalAnalysis"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        220,
+        1400
+      ],
+      "id": "6fa7470c-68c1-4fe6-a692-98083da5af83",
+      "name": "取得摃桿資料"
+    },
+    {
+      "parameters": {
+        "jsCode": "var keyworkflow = [\"symbol\"]\nvar kwysetting = [\"timestamp\"]\n\nvar para = []\nkwysetting.map(item=>{\n  para.push(item + \"=\" + encodeURIComponent($input.all()[0].json[item]))\n})\n\nkeyworkflow.map(item=>{\n  para.push(item + \"=\" + encodeURIComponent($('When Executed by Another Workflow').first().json[item]))\n})\n\n\ndata = para.join(\"&\")\n\nreturn {\n  \"data\":data\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        440,
+        1400
+      ],
+      "id": "268a9a79-11dc-40b9-88b5-bc64f47c37ba",
+      "name": "取得leverage query string"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "PtM1hcbyctDi76QQ",
+          "mode": "list",
+          "cachedResultName": "hmacsha256"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "secretkey": "={{ $('設定變數').item.json.secretkey }}",
+            "message": "={{ $json.data }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "message",
+              "displayName": "message",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "secretkey",
+              "displayName": "secretkey",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        660,
+        1400
+      ],
+      "id": "657fbf3b-59f7-4747-b0fe-2a02957edde0",
+      "name": "簽Get leverage"
+    },
+    {
+      "parameters": {
+        "url": "=https://open-api-vst.bingx.com/openApi/swap/v2/trade/leverage",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "timestamp",
+              "value": "={{ $('設定變數').item.json.timestamp }}"
+            },
+            {
+              "name": "signature",
+              "value": "={{ $json.data }}"
+            },
+            {
+              "name": "symbol",
+              "value": "={{ $('When Executed by Another Workflow').item.json.symbol }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-BX-APIKEY",
+              "value": "={{ $('設定變數').item.json.apikey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/x-www-form-urlencoded"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        880,
+        1400
+      ],
+      "id": "66562e12-b70b-436f-89a6-d91a6a2d6704",
+      "name": "Get Leverage"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        220,
+        1600
+      ],
+      "id": "2c09b4bf-45a4-4924-b52d-7a71233a7baf",
+      "name": "更新槓桿"
+    },
+    {
+      "parameters": {
+        "jsCode": "var rawData = {};\nvar sortedrawdata= {}\n\nvar keyworkflow = [\"symbol\", \"leverage\"];\nvar kwysetting = [\"timestamp\"];\n\nrawData[\"side\"] = $('When Executed by Another Workflow').first().json[\"positionSide\"];\n// Collect data for keyworkflow and kwysetting\nkeyworkflow.forEach(item => {\n  rawData[item] = $('When Executed by Another Workflow').first().json[item];\n});\n\nkwysetting.forEach(item => {\n  rawData[item] = $input.all()[0].json[item];\n});\n\nconst sortedKeys = Object.keys(rawData).sort();\nconst encodedDataParts = sortedKeys.map(key => `${key}=${encodeURIComponent(rawData[key])}`);\nsortedKeys.map(key => \n  sortedrawdata[key] = rawData[key]\n);\n\n//delete sortedrawdata.timestamp\n// Build the 'data' string as a JSON string of the rawData object\nconst dataString = JSON.stringify(sortedrawdata);\n\n// Build the 'encodedata' string with sorted keys (with encoding)\nconst encodedDataString = encodedDataParts.join(\"&\");\n\nreturn {\n  \"data\": dataString,\n  \"encodedata\": encodedDataString\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        440,
+        1600
+      ],
+      "id": "9ad63a15-ec67-4a5b-b9ef-b8c8855af7ba",
+      "name": "取得query string"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "PtM1hcbyctDi76QQ",
+          "mode": "list",
+          "cachedResultName": "hmacsha256"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "secretkey": "={{ $('設定變數').item.json.secretkey }}",
+            "message": "={{ $json.encodedata }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "message",
+              "displayName": "message",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "secretkey",
+              "displayName": "secretkey",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        660,
+        1600
+      ],
+      "id": "a17e3b06-8d9f-4799-b2f1-8938d18a09b4",
+      "name": "簽"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://open-api-vst.bingx.com/openApi/swap/v2/trade/leverage",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "signature",
+              "value": "={{ $json.data }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-BX-APIKEY",
+              "value": "={{ $('設定變數').item.json.apikey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/x-www-form-urlencoded"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $('取得query string').item.json.data }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        880,
+        1600
+      ],
+      "id": "499dbc5e-d787-4317-a2e4-c8971857d699",
+      "name": "BingxAPI"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        220,
+        1800
+      ],
+      "id": "149a48a0-43da-456c-bf51-caf76a426aaa",
+      "name": "取得掛單"
+    },
+    {
+      "parameters": {
+        "jsCode": "var keyworkflow = [\"symbol\"]\nvar kwysetting = [\"timestamp\"]\n\nvar para = []\nkwysetting.map(item=>{\n  para.push(item + \"=\" + encodeURIComponent($input.all()[0].json[item]))\n})\n\nkeyworkflow.map(item=>{\n  para.push(item + \"=\" + encodeURIComponent($('When Executed by Another Workflow').first().json[item]))\n})\n\n\ndata = para.join(\"&\")\n\nreturn {\n  \"data\":data\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        440,
+        1800
+      ],
+      "id": "1cea68aa-7318-4ff4-9ec6-7882e9a5c9a8",
+      "name": "取得leverage query string1"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "PtM1hcbyctDi76QQ",
+          "mode": "list",
+          "cachedResultName": "hmacsha256"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "secretkey": "={{ $('設定變數').item.json.secretkey }}",
+            "message": "={{ $json.data }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "message",
+              "displayName": "message",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "secretkey",
+              "displayName": "secretkey",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        660,
+        1800
+      ],
+      "id": "dc002e6d-e02e-4e86-a05f-6afb697c1e96",
+      "name": "簽1"
+    },
+    {
+      "parameters": {
+        "url": "=https://open-api-vst.bingx.com/openApi/swap/v2/trade/openOrders",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "timestamp",
+              "value": "={{ $('設定變數').item.json.timestamp }}"
+            },
+            {
+              "name": "signature",
+              "value": "={{ $json.data }}"
+            },
+            {
+              "name": "symbol",
+              "value": "={{ $('When Executed by Another Workflow').item.json.symbol }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-BX-APIKEY",
+              "value": "={{ $('設定變數').item.json.apikey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/x-www-form-urlencoded"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        880,
+        1800
+      ],
+      "id": "c48fca6c-7b6e-4415-9361-5867500f3a8d",
+      "name": "BingxAPI 1"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        220,
+        2000
+      ],
+      "id": "00fedee0-4786-4585-9685-f19cd47dd5b0",
+      "name": "取消掛單"
+    },
+    {
+      "parameters": {
+        "jsCode": "var rawData = {};\nvar sortedrawdata= {}\n\nvar keyworkflow = [\"symbol\"]; //\"orderId\"\nvar kwysetting = [\"timestamp\"];\n\n// Collect data for keyworkflow and kwysetting\nkeyworkflow.forEach(item => {\n  rawData[item] = $('When Executed by Another Workflow').first().json[item];\n});\n\nkwysetting.forEach(item => {\n  rawData[item] = $input.all()[0].json[item];\n});\n\n//rawData[\"type\"] = \"LIMIT\"\nconst sortedKeys = Object.keys(rawData).sort();\nconst encodedDataParts = sortedKeys.map(key => `${key}=${encodeURIComponent(rawData[key])}`);\nsortedKeys.map(key => \n  {\n    sortedrawdata[key] = rawData[key]\n  }\n);\n\n//delete sortedrawdata.timestamp\n// Build the 'data' string as a JSON string of the rawData object\nconst dataString = JSON.stringify(sortedrawdata);\n\n// Build the 'encodedata' string with sorted keys (with encoding)\nconst encodedDataString = encodedDataParts.join(\"&\");\n\nreturn {\n  \"data\": dataString,\n  \"encodedata\": encodedDataString\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        440,
+        2000
+      ],
+      "id": "4470b1ca-2fc5-4914-860c-4d7c32dadc84",
+      "name": "取得 para 1"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "PtM1hcbyctDi76QQ",
+          "mode": "list",
+          "cachedResultName": "hmacsha256"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "secretkey": "={{ $('設定變數').item.json.secretkey }}",
+            "message": "={{ $json.encodedata }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "message",
+              "displayName": "message",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "secretkey",
+              "displayName": "secretkey",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        660,
+        2000
+      ],
+      "id": "c604f1df-c19a-4999-801f-58d2a3a3eec2",
+      "name": "簽 1"
+    },
+    {
+      "parameters": {
+        "method": "DELETE",
+        "url": "=https://open-api-vst.bingx.com/openApi/swap/v2/trade/order",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "signature",
+              "value": "={{ $json.data }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-BX-APIKEY",
+              "value": "={{ $('設定變數').item.json.apikey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/x-www-form-urlencoded"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $('取得 para 1').item.json.data }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        880,
+        2000
+      ],
+      "id": "c6c331a9-c257-4173-8f2c-a4c7ca737867",
+      "name": "BingxAPI 2"
+    }
+  ],
+  "pinData": {
+    "When Executed by Another Workflow": [
+      {
+        "json": {
+          "action": "openOrders",
+          "symbol": "ADA-USDT",
+          "marginType": "",
+          "side": "BUY",
+          "positionSide": "LONG",
+          "price": 80000.001,
+          "quantity": 10.0002,
+          "stopPrice": 60000.003,
+          "takePrice": 100000.0004,
+          "leverage": 21,
+          "orderId": "1942854715396067300"
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-07-09T16:06:56.000Z",
+  "versionId": "0e6b279a-d354-40f7-a89e-af0b650a9bc8"
+}
