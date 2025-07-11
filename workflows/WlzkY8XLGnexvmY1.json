@@ -1,0 +1,60 @@
+{
+  "active": false,
+  "connections": {
+    "HTTP Request": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-07-02T13:17:58.202Z",
+  "id": "WlzkY8XLGnexvmY1",
+  "isArchived": false,
+  "meta": null,
+  "name": "MCP Server",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "roytest"
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpTrigger",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "8619397e-c3e3-4eff-a20b-98e2f265b99a",
+      "name": "MCP Server Trigger",
+      "webhookId": "0146e90c-42b1-4c69-b94b-9a8ad21a9f8d"
+    },
+    {
+      "parameters": {
+        "url": "https://google.com",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        100,
+        220
+      ],
+      "id": "bbe78586-6f2d-4d70-aed1-0ba3fb539f12",
+      "name": "HTTP Request"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-07-02T13:25:55.000Z",
+  "versionId": "2fd6f57f-c83b-4fa5-8038-1c4fd6d2cc90"
+}
